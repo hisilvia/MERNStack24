@@ -165,3 +165,18 @@ User2.getDetails()
 
 // repeat and write an arrowfunction to print account information with return, without return
 // by creating a account object
+console.log("-----Practice----------")
+let accountInfo = {
+    Id: 453,
+    name: "Jacbo",
+    address: "709 Wentzville",
+    getDetail: ()=>{
+        console.log(
+            `${this.Id}
+             ${this.name}
+             ${this.address}
+            `
+        )
+    }
+
+}
