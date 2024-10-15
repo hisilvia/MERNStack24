@@ -69,7 +69,7 @@ console.log(TraineeList.size)
 
 //Create two examples of your own choice to make a map and a weak map
 // and a list of unique names of 10 states of your favrourite country you wish to visit on world tour
-console.log("---------------Practice---------------")
+console.log("---------------Practice Part---------------")
 let myWishList = new Map();
 myWishList.set("first","Xi'an");
 myWishList.set("second","Shijiazhuang");

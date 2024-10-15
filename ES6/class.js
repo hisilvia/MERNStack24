@@ -45,19 +45,25 @@ class Account {
     }
 
     GetUserDetails = ()=>{
+        /*
         console.log(`
                         ${this.id}
                         ${this.name}
                         ${this.type}
                      `)
+        if only console.log, no return==>then get undefined. so function should use return instead of console.log
+        */
+        return (`${this.id} ${this.name} ${this.type}`);
+
     }
 
     AcctOffers = function(){
         if (this.type === "debit")
-            return console.log("Saving account");
+            return ("Saving account");
 
         else
-            return console.log("Credit card");
+            return ("Credit card");
+        
     }
 }
 

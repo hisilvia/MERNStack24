@@ -98,7 +98,7 @@ let {FirstName, TotalMarks, Subject:{Physics, Chemistry, Language, Ecology=95}} 
 console.log(FirstName)               //==>Stacy
 console.log(TotalMarks)              //==>75%
 console.log(Ecology)                 //==>95
-console.log("---")
+console.log("-------------------------------")
 
 //create an array of your aspirations, print first three to achieve in 2024,25,26 and keep others in ...rest operator, using array destructuring 
 let [aspiration1, aspiration2, aspiration3, ...aspirations]=[2024,2025,2026,2027,2028,2029,2030]
@@ -106,7 +106,7 @@ console.log(aspiration1)
 console.log(aspiration2)
 console.log(aspiration3)
 console.log(aspirations)
-console.log("---")
+console.log("-------------------------------")
 
 //create a funtion with name multiply which accepts three parameters, and return multiplication of all
 //but if we dont pass any parameter it returns 0
@@ -115,7 +115,7 @@ function multiply(p1=0,p2=0,p3=0) {
 }
 console.log(multiply(2,5,6))
 console.log(multiply())
-console.log("---")
+console.log("-------------------------------")
 
 //create an array of 1 - 5 and add arr[newval] = at 6th place, print the output using for of and for in loop
 console.log("---ForIn---")
@@ -131,21 +131,40 @@ console.log("---ForOf---")
 for (const element of arr) {
     console.log(element)
 }
-console.log("---")
+console.log("-------------------------------")
 
 //create an example of const where we can update on property of the object, where it says const is mutable
 const person = {
     id: 4,
     name: "Lilly",
-    address: "Wentzille",
-    getDetail: {
-
-    }
+    address: "Wentzille"
 
 }
-console.log("---")
+console.log(person);
+
+//const is mutable
+person.getDetail ={
+    id: 5,
+    name: "Alec",
+    address: "St.Louis"
+}
+console.log(person);
+console.log("-------------------------------")
 
 //create a for loop using var and let, print each value in timeout after 2 second and try to 
 //demonstrate functional scope of var and lexical of let 
+var i = 0;
+for (i = 0; i<6; i++) {
+    setTimeout(()=>{
+        console.log(i)               //==>6 6 6 6 6 6
+    },2000);
+    console.log("InsideIdx after set = " + i);
+}
 
-console.log("---")
+for (let j=0; j<3; j++) {
+    setTimeout(()=>{
+        console.log(j)                //==>0 1 2
+    },2000);
+    console.log("InsideIdx after set = " + j);
+}
+console.log("-------------------------------")
