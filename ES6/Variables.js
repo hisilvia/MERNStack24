@@ -132,3 +132,55 @@ for (j=1; j<5; j++) {
 //params = 2
 //params = 3
 //params = 4
+
+console.log("******************************************************************************")
+//Pls work on these questions as well – 
+//1. OutPut of the following 
+function sum(x, y) { 
+    if (y !== undefined) 
+        return x + y; 
+    else { 
+        return function(y) { 
+            return x + y; }; 
+        } 
+} 
+
+    console.log(sum(2,3)); // Outputs - 5
+    console.log(sum(2)(3)); // Outputs - 5
+    
+//2. Create a function to populate user details. 
+//   func - populateDetail prints Adress and accepts a callBackFunction which prints Name, Age and Topic 
+let UserInfo = {
+    name: "Bob",
+    age: 19,
+    topic: "Data Structure"
+
+}
+let populateInfo = function(){
+
+}
+
+
+/*
+//3. Javascript currying is achieved by returning functions from functions. 
+//   Here, the outer function (print) supplies the printing to be used while the returned function
+//    allows the caller to supply the name of the printer. 
+function print(printing) { 
+    return function (printer) { 
+        console.log(printing + ", " + printer + "!"); 
+    }("Hello"); 
+} 
+print("somethinng"); 
+
+function print(printing) { 
+    return function (name) { 
+        console.log(printing + ", " + name + "!"); 
+    }; 
+} 
+print("My Name Is "); 
+
+//4. output of the following console.log(typeof typeof 1); 
+//4.1 Example of bind function on browser, we must be able to change the object on click 
+//4.2 Create object without protoype and the inherit it futher
+
+*/
