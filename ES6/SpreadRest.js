@@ -23,7 +23,7 @@ let delivery = Object.assign({}, user, addresses)
 //let delivery = {...user,...addresses}
 console.log(delivery)
 
-addresses.availabe = "SPM"   //pRESERVES THE IMMUTABLILITY
+addresses.availabe = "SPM"   //Preserves the immutablity
 console.log(delivery)
 
 //then you have to do it again
@@ -56,10 +56,12 @@ console.log(addMax(...numberList)) //doest the job of passing dynamic and large 
 console.log(addMax.apply(null, numberList)) //using apply function attached with each function to accept parameters as an array
 
 
-
+console.log("-----------------------------Practice part---------------------")
 //Questions :
 //Spread Operator - 
 //create a list of vaccines and print
+let vaccines = ["DTP","Hib","Pneumococcal"]
+console.log(...vaccines);
 //create doctor object and print his qualifications and other details using spread
 //create a vaccine object with details like - name, no of doses required, price etc and merge it with nearest doctor object using spread
 
