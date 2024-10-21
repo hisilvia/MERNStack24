@@ -1,6 +1,6 @@
 //Date: 10/17/2024
 //Spread: is used to spread the elements of any object or array to be usded one by one
-
+//a.spread the elements of array one by one
 let nameList = ["Duncan","Windie","Hongbo","Michael"]
 
 console.log(...nameList)   //==>Duncan Windie Hongbo Michael
@@ -19,6 +19,7 @@ let addresses = {
     officeAddress: "Somewhere in Atlanta"
 }
 
+//b.spread elements of objects. merge objects
 let delivery = Object.assign({}, user, addresses)
 //let delivery = {...user,...addresses}
 console.log(delivery)
@@ -39,7 +40,7 @@ console.log(add(...numberList))
 //if let numberList = [1,2,3,4,5,6]
 //console.log(add(...numberList)) ==>15 as well   <usage of spread operator
 
-//we can use spread parmeter instead for dynamic count of params
+//c.we can use spread parmeter instead for dynamic count of params
 
 let addMax = function(...restNumberList) {
     let sum = 0
@@ -63,10 +64,40 @@ console.log("-----------------------------Practice part---------------------")
 let vaccines = ["DTP","Hib","Pneumococcal"]
 console.log(...vaccines);
 //create doctor object and print his qualifications and other details using spread
+console.log("------------------")
+let doctor = {
+    id: 1234,
+    dname: "Bob",
+    getDetails: {
+        Education: "PHD",
+        Medical_School: "UMSL",
+        State_License: 'true',
+        Board_Certification: 'true'
+    }
+}
+const doc1 = {...doctor}
+console.log('doc:',doc1)
 //create a vaccine object with details like - name, no of doses required, price etc and merge it with nearest doctor object using spread
-
+console.log("------------------")
+let vaccine = {
+    vname: "DTP",
+    Doses: 3,
+    price: 45
+}
+const megerObj ={...doctor,...vaccine}
+console.log('megerObj: ',megerObj)
 
 //Rest Parameter - 
 //create a function which accepts start and end of number and generates a array of that size, [100....150]
 //then use this array to pass as spread operator into a function named largesum
 //in largesum we should accept the array in rest parameter (...arrayOfNums), and then add the numbers
+console.log("------------------")
+let arrayOfNums = [1,2,3,4,5,6,7,8,9]
+
+function largesum(a,b,c,...arrayOfNums){
+    let total =a+b+c;
+    for (const element of arrayOfNums)
+        total = total + element;
+    return total;
+}
+console.log(largesum(3,6,1,...arrayOfNums))

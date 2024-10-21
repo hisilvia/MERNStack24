@@ -1,36 +1,44 @@
-//Date: 10/18/2024
+//Date: 10/18/2024  1.Shorthand.js, 2.TemplateLiteral.js 3.Export_import.js
 //2.templateLiteral.js
+//Template literals are literals delimited with backtick (`) characters,
+//allowing for multi-line strings, string interpolation with embedded expressions, 
+//and special constructs called tagged templates.
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
 //Template literal in ES6 is used to create a better implementation of strings, html, json data
 //without the need of string separaters, html identifiers and new lines
+
+// `` - use back tick or tild operator and write your string, html, variables etc it will return the data in same struture
+// to use objects/variables we should use ${---here the variables---}
+
 let dynVal = 2024;
-let animalSoundES6 = require('./Shorthand')
+let animalSoundsES6 = require('./Shorthand')
 let myNormalString = "Lorem Lipsum Lorem Lipsum Lorem Lipsum" +
-                     "\n Lorem Lipsum Lorem Lipsum" +dynVal+ "Lorem Lipsum" +
-                     "\n Lorem Lipsum Lorem Lipsum Lorem Lipsum"
+                     "\n Lorem Lipsum Lorem Lipsum " + dynVal + " Lorem Lipsum" +
+                     "\n Lorem Lipsum Lorem Lipsum Lorem Lipsum" +
+                     "<h1>Header</h1>"+
+                     "\n Lorem Lipsum Lorem Lipsum Lorem Lipsum \n" +
+                     JSON.stringify(animalSoundsES6);
 console.log(myNormalString)
+console.log("**********")
 
 
-//Exercise: write details about yourself using template literal and use variable and objects to show the value
-let myTemplateLiteral = `Lorem Lipsum Lorem Lipsum Lorem Lipsum" +
-                     "\n Lorem Lipsum Lorem Lipsum" +dynVal+ "Lorem Lipsum" +
-                     "\n Lorem Lipsum Lorem Lipsum Lorem Lipsum`;
+let myTemplateLiteral = `Lorem Lipsum Lorem Lipsum Lorem Lipsum 
+                     Lorem Lipsum Lorem Lipsum ${dynVal} Lorem Lipsum
+                     Lorem Lipsum Lorem Lipsum Lorem Lipsum
+                     <h1>Header</h1>
+                     Lorem Lipsum Lorem Lipsum Lorem Lipsum
+                     ${JSON.stringify(animalSoundsES6)}`;
 console.log(myTemplateLiteral)
 
-//3.export, import keywords are used to export and import the properties, functions, classes from 1 module to another module
-//if we are importing from node library we will directly import from the module name
-//eg. import("react"),
-//when we import from the local modules (file or a file with many features) then we need to pass the absolute path
-//eg.shorthand     --->let {AnimalSoundsES6} = import from "./shorthand";
-
-//a. without {}
-
-
-//b. with {}
-
-//c. the same name in a different files using alias
+//exercise : write details about yourself using template literal and 
+ // use variable and objects to show the value 
+let date = "10/20/2024"
+let myObj = {
+    "name": "Silvia",
+    "favorate": "Cat"
+}
+let myLiteral = `my information ${JSON.stringify(myObj)} ${date}`
+console.log(myLiteral)
 
 
-//d. import all in a file using wild start *
-
-//e. only can have one defalut, defalut don't need {}
-import * as constants from "./constant";

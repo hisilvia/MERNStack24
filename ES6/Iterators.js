@@ -78,7 +78,7 @@ let persons = [
     {id : 4, name : "Adam", tags : "javascript"},
     {id : 5, name : "Alex", tags : "java"}
 ];
-/*
+
 //1. List the person with javascript tag
 let jsTag = persons.filter((person)=>person.tags === "javascript")
 console.log(jsTag)
@@ -108,7 +108,7 @@ console.log(mdName)
 //3. If we have anyone with tag python
 let isPythonTag = persons.some((person)=>person.tags == "python")
 console.log(isPythonTag)
-*/
+
 //4. Find the number of unique tags and their count present in list
 let countUniqueTags = persons.reduce((prevObject,currObject,index,list)=>{
     
