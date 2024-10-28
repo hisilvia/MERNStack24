@@ -1,4 +1,4 @@
-//1.Promise
+//1.Promise    Date: 10/21/2024
 //Create a student promise object and it should return the resolve and reject data after two seconds
 //It should be named as student info
 let studentPromise = new Promise((resolve,reject)=>{
@@ -27,3 +27,29 @@ studentPromise.then((resolve,reject)=>{
     console.log("Catch_resolve: ",resolve)
     console.log("Catch_reject: ",reject)
 })
+
+//2.multiPromise.js  Date: 10/22/2024
+//create promise of three concurrent sessions of a day and try to resolve and reject them
+
+
+//3.asyncAwait.js   Date: 10/22/2024
+//create a promise to print user info like - name, address, account number after 3 seconds, using aync and await
+// also check when it rejects after 2 second
+// analyse how await works as blocking execution
+
+// create one set of map using different types of keys and at leas show the usage of 5 functions (.get, .clear)
+// create a list using set and show the usage of 5 functions (.add, .clear)
+
+// create and example of arithmatic operations (addition, substraction, multiply, division), using generator function
+
+
+
+
+
+
+//4.generatorFunction.js  //Date: 10/22/2024
+//no assignment
+
+
+
+//5.
