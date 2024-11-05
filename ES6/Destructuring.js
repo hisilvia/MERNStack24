@@ -30,7 +30,7 @@ console.log(Session33)      //==>JAVA
 console.log(Session)        //==>['DSA', 'Data Analytics', 'AI-ML']   It's an array
 
 //c. Data swapping can be done easily - values are swapped with variables
-let a = "New A", b = "New b";    //semicolon must be here
+let a = "New A", b = "New B";    //semicolon must be here
                                  //when is a semicolon necessary in JS?
                                  //Its optional, but there are certain cases where they are necessary to avoid unexpected behavior:
                                  //a. Multiple Statements on a Single Line -- like line 33
@@ -38,8 +38,8 @@ let a = "New A", b = "New b";    //semicolon must be here
 
 [a, b] = [b, a]
 
-console.log(a)             //==>New b
-console.log(b)             //==>New a
+console.log(a)             //==>New B
+console.log(b)             //==>New A
 
 //2. Object desructuring allows us to read data from objects without multiple initialization
 

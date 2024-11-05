@@ -2,7 +2,7 @@
 //Due to increase in the work load at front end or at backend while consuming data like array of object
 // or object of objects the operations using normal for loops becomes very slow and it also doesnt allow
 // us to do any manipulation in the existing data array
-//Four New Iteratiors are added to ES6 for different purposes and give us optimized solution
+//Four New Iterators are added to ES6 for different purposes and give us optimized solution
 //Filter, Map, Some and Reduce
 
 let personsList = [
@@ -13,7 +13,7 @@ let personsList = [
     {id:5, name: "Alex", savedby: "SpiderMan"},
     {id:6, name: "Robin", savedby: "Batman"},
 ];
-/*
+
 //Filter: helps us to iterate but can't manipulate the list, we can only get the same data based on given condition
 //1.List the Persons saved by CA
 let personSaveByCA = personsList.filter((person)=>person.savedby == "CaptainAmerica")
@@ -48,7 +48,7 @@ console.log(personSavedByHulk)  //==>false
 
 let personSavedBySpiderMan = personsList.some((person)=>person.savedby == "SpiderMan")
 console.log(personSavedBySpiderMan)  //==>true
-*/
+
 
 //5.Get the count of each person saved by every super hero of Marvel
 let eachSavedPersonCount = personsList.reduce((prevObject, currObject, index,list)=>{

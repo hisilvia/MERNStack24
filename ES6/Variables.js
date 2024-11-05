@@ -1,10 +1,10 @@
 //ECMAScript 2015 is also known as ES6 and ECMAScript 6.
-//1. DataFile.js -Date:10082024
+//1. DataFile.js -Date:10/8/2024
 // JS - function, var
 // 2015 => JS => ES6 ==> ES.Next
 // ES - EcmaScript
 
-//2. Variables.js  -Date:10082024
+//2. Variables.js  -Date:10/8/2024
 //Unlike var, Let allows the script to restrict access to the variable to the nearest enclosing block
 //and ensures we dont have re-declaration of a variable.
 
