@@ -1,6 +1,16 @@
-const express = require('express')
-const app = express()
+const express = require('express')     //import package
+const app = express()                  //initializing the express application
 
+const defaultRoutes = require("./Routes/defaultRoute")
+
+//we can have multiple express applications running in our single project
+const adminApp = express()
+
+//assume we have multiple sessions: user, product, cart
+
+//const router = express.Router({})
+
+/*
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
@@ -73,7 +83,7 @@ app.get('/getjson', function (req, res) {
 app.get('*', function (req, res) {
     res.send('API is not ready yet')
 })
-
+*/
 console.log('API is listening at port 3000')
 app.listen(3000)
 
