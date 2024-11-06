@@ -1,3 +1,6 @@
+//2024-11-1 on server.js
+//create an api to read data via query parameter and save that information to a file on the server
+
 const express = require('express')
 const app = express()
 

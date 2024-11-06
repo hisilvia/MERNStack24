@@ -1,4 +1,4 @@
-const express = required('express')  //import package
+const express = require('express')  //import package
 
 const expsRouter = express.Router({strict:true, caseSensitive: true}) // a separate route table to create and handle our api's
 
@@ -52,7 +52,7 @@ expsRouter.get('/', function (req, res) {
     if (param_id) {
       //res.send(qs)  
       res.send(`
-          <h2>Route Param passed is : ${param_id}</h2>
+          <h2>Route Param passed id is : ${param_id}</h2>
           <h2>Route Param passed name is : ${param_name}</h2>
         `)
     } else {
