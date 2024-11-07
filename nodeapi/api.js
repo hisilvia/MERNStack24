@@ -32,3 +32,7 @@
 // also creates a new folder with name <node_modules>
 
 //npm commands are registered in package.json in scripts tag
+
+//2024/11/06
+//mongodub - using mongoose
+//mongoose - orm (object relationship manager})
