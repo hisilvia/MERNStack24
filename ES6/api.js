@@ -33,6 +33,33 @@
 
 //npm commands are registered in package.json in scripts tag
 
-//2024/11/06
+//2024/11/06  New topics will be these three below:
 //mongodub - using mongoose
-//mongoose - orm (object relationship manager})
+//post calls
+//jwt token auth
+
+// mongoose - orm {object relationship manager} <json => mapped with backend document based no-sql structure>
+// bson
+[ //collections - users
+    { //document1 (row1) - user1 
+        username : "Yao", //
+        address1 : {
+
+        },
+        address2 : {
+
+        }
+    },
+    { //document2 (row2) - user2
+        username : "Windie",
+        address1 : {
+
+        },
+        address2 : {
+
+        },
+        address3 : {
+
+        }
+    }
+]
