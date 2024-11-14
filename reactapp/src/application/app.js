@@ -13,7 +13,13 @@ export default class Application extends React.Component {
     onclick = (evt)=>{
         console.log("Name change click is clicked")
         this.setState({
-            userName : "Sierra"
+            //userName : "Sierra"
+
+            userName: ["Nilay", "Gesan", "Jimmy", "Ben Ma", "Jay", "Everyone else"]
+            // userName.map((name)=>{
+            //     return <b><hr/>{name}</b>})
+
+
         })
         evt.preventDefault();
     }
