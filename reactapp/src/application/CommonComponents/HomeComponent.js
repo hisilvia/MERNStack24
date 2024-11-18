@@ -10,42 +10,48 @@
 import React, {Component} from "react";
 import Friend from "./FriendComponent";
 
+//Parent component
+/*
 export default function MyComponent(props){
-    let myName = "Silvia";
-    let myAddress = "Dogwood Creek Dr. MO";
-    let myMajor = "CS"
+    const info = {
+        name: "Silvia",
+        address: "Dogwood Creek Dr. MO",
+        major: "CS"
+    }
+    
 
     return (
         <>
-            <h2>This is my home component page </h2>
-            <h3>My Name: {myName}</h3>
-            <h3>My Address: {myAddress}</h3>
-            <h3>My Major: {myMajor}</h3>
-            {/* <h2>This name we are getting from parent - {props.friendName}</h2> */}
-            <Friend />
-            
+            <h2>This is my home component page </h2>           
+            <Friend myInfo={info}/>
         </>
     )
 }
+*/
 
 
-/*
-export class MyComponent extends Component{
+export default class MyComponent extends Component{
     constructor() {
         super();
         this.state = {
-            name: "Silvia",
-            address: "Dogwood Creek Dr. MO",
-            major: "CS"
+            info: {
+                name: "Silvia",
+                address: "Dogwood Creek Dr. MO",
+                major: "CS"
+            }
+            
         }
     }
 
     onclick = (evt)=>{
         console.log("Name change click is clicked")
         this.setState({
-           name : "Jannifer",
-           address: "702 Wentzvill. MO",
-           major: "Account"
+            info: {
+                name : "Jannifer",
+                address: "702 Wentzvill. MO",
+                major: "Account"
+            }
+           
 
         })
        
@@ -56,10 +62,11 @@ export class MyComponent extends Component{
         return (
             <>
             <div>
-               <Friend />
+                <h2>This is my home component page </h2> 
+                <Friend myInfo={this.state.info}/>
             </div>
             <div>
-                
+                <button onClick={this.onclick}>Change Info</button>
             </div>
         </>
         )
@@ -67,7 +74,7 @@ export class MyComponent extends Component{
     }
 
 }
-*/
+
 
 
 
