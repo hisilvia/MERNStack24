@@ -13,8 +13,8 @@ export default function Friend(props){
             <h2>This is my friend component page </h2>
             <h2>This name we are getting from parent: </h2>
             <p>Name: {props.myInfo.name}</p>
-            <p>Name: {props.myInfo.address}</p>
-            <p>Name: {props.myInfo.major}</p>
+            <p>Address: {props.myInfo.address}</p>
+            <p>Major: {props.myInfo.major}</p>
         
         </>
     )
