@@ -29,7 +29,7 @@ export default function MyComponent(props){
 }
 */
 
-
+/*
 export default class MyComponent extends Component{
     constructor() {
         super();
@@ -74,7 +74,19 @@ export default class MyComponent extends Component{
     }
 
 }
+*/
+export class Home extends React.Component {
 
+
+    render()
+    {
+        return(
+            <>
+                <h1>Home Component</h1>
+            </>
+        )
+    }
+}
 
 
 
