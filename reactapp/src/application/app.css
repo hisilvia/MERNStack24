@@ -16,7 +16,7 @@ html {
  * Remove default margin.
  */
 body {
-  margin: 0; }
+  margin: 12; }
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -484,7 +484,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  margin: 10;
   padding: 0.6em 0; }
 
 li {

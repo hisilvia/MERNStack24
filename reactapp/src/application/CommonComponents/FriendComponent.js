@@ -1,5 +1,4 @@
 import React from "react";
-import MyComponent from "./HomeComponent";
 
 //Children component --> MyComponent is a parent
 export default function Friend(props){

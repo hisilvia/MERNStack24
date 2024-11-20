@@ -1,5 +1,5 @@
 import React from "react";
-import MyComponent  from "./HomeComponent";
+import Me  from "./MyComponent";
 
 export class AppCopy extends React.Component {
     constructor(props) {
@@ -47,9 +47,9 @@ export class AppCopy extends React.Component {
             <h2 name="h2_element">{this.state.userName}</h2>
             <button onClick={this.onclick}> Change Name</button>
 
-            {/* <hr/>
+            <hr/>
             <h3>AppCopy</h3> 
-            <MyComponent /> */}
+            <Me />
         </>)
     }
 }

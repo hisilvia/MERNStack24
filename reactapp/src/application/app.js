@@ -4,7 +4,7 @@ import "./app.css";
 import Footer from "./CommonComponents/FooterComponent";
 import Header from "./CommonComponents/HeaderComponent";
 import { AppCopy } from "./CommonComponents/AppCopy";
-
+import Me  from "./CommonComponents/MyComponent";
 import {Home} from "./CommonComponents/HomeComponent";
 import About from "./CommonComponents/AboutComponent";
 import NotFound from "./CommonComponents/NotFoundComponent";
@@ -40,6 +40,8 @@ export default class Application extends React.Component {
                 <Route path="about" element={<About />} />
                 <Route path="about/:id" element={<About />} />
                 <Route path="*" element={<NotFound />}/>
+
+                <Route path="me" element={<Me />} />
             </Routes>
             <Footer/>
         </Router>
