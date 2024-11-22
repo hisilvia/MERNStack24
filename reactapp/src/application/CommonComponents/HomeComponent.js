@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
-export class Home extends React.Component {
+//class based component - base class is component which defines many life cycle methods and state management
+export class Home extends Component {
 
 
     render()
