@@ -1,22 +1,178 @@
-import React, {Component} from "react";
+import React, { Component, PureComponent } from "react";
+import {PropTypes} from "prop-types";
 
 //class based component - base class is component which defines many life cycle methods and state management
-export class Home extends Component {
+export default class Home extends Component {
+
+//PureComponent - implements the should component update to do the deep comparison of each state and props for every state change
+//export default class Home extends PureComponent {    
+    //creation life cycle
+    //initialization of state and variables - first to get called and only once
+    constructor(props){
+        //sending props back to super constructor so that updated values of props are in sync 
+        super(props);
+
+        this.state= {
+            firstName : "First Name",
+            lastName : "Last Name",
+            age : 19,
+            user : props.user // property we get from parent - app component(app.js)
+        }
+
+        this.newAddress = "Somewhere on earth!!";
+        
+        this.incrementAgeLoop = null;
+        this.incrementAgeVal = 17;
+        //this.incrementAge();
+    }
+
+    //Creation LC - last one in creation life cycle method/hook and also called once after the render
+    //html is rendered and we can make api call here - to do some change in state
+    componentDidMount(){
+        console.log("componentDidMount method is called")
+
+        setTimeout(() => {
+            this.setState({
+                firstName : "The changed name"
+            })
+        }, 3000);
+    }
+
+    //update life cycle methods- are called for every change of state and tracks the state and prop changes
+    //shouldComponentUpdate - is used to keep a check for every state change before calling render
+    //this must return true to call render method else false
+
+    //Since we use PureComponent for class component, we do not need this shouldComponentUpdate() method.
+    //If we still use component instead of PureComponent, we need to use this shouldComponentUpdate() method!
+
+    shouldComponentUpdate(nextPops, nextState){
+        console.log("shouldComponentUpdate method is called")
+        // console.log("nextPops ", nextPops)
+        // console.log("nextState ", nextState)
+        // console.log("this.state.first =", this.state.firstName)
+        // console.log("nextState.firstName =", nextState.firstName)
+
+        if (this.state.firstName == nextState.firstName ) {
+            return false // should not call render method to create virtual dom - as no change in firstName
+        } else {
+            return true // keep calling render method     
+        }
+    }
+
+    onclick = (evt)=>{
+        console.log("Name change click is clicked")
+        
+        //this.state.firstName = "Christopher"
+        this.newAddress = "Somewhere on France!!"
+
+        // the advised way to show the change value in react rendering
+        // this.setState({
+        //     firstName : "Sierra"
+        // })
 
 
+        //force update - api can be used to call render method directly, which skips shouldComponentUpdate() method
+        //not a suggested way to udpate the state unless its required to skip
+        this.state.firstName = "Hong Bo",
+        this.forceUpdate();
+
+        //console.log("After setstate called", this.state.userName)
+        evt.preventDefault();
+    }
+
+    
+    incrementAge = ()=>{
+
+        this.incrementAgeLoop = setInterval(()=>{ //continous loop
+            this.incrementAgeVal++
+            this.setState({
+                age : this.incrementAgeVal
+            })
+
+            console.log(this.incrementAgeVal)
+        }, 2000) //runs every  2 seconds forever - unless cleared
+
+        // setTimeout(()=>{
+        //     clearInterval(this.incrementAgeLoop)
+        // },5000)
+    }
+    
+    //update life cycle methods called after render
+    getSnapshotBeforeUpdate(prevState, prevProps){
+        console.log("getSnapshotBeforeUpdate");
+        // console.log("prevState", prevState);
+        // console.log("prevProps", prevProps);
+
+
+        // this.prevUser = prevState.user;
+        // this.setState({
+        //     user : this.prevUser
+        // })
+
+        return {
+            prevState,
+            prevProps
+        }
+    }
+
+    componentDidUpdate(prevState, prevProps){
+        console.log("componentDidUpdate");
+        // console.log("prevState",prevState);
+        // console.log("prevProps", prevProps);
+
+        this.setState({
+            uState : prevState.uState
+        })
+    }
+
+    //destruction
+    //in this LC method we must remove all subscriptions and server calls made in the component
+    componentWillUnmount(){
+        console.log("componentWillUnmount is called")
+        clearInterval(this.incrementAgeLoop)
+    }
+
+
+    //is used to render the html first time with creation LC, for every change of state to show the updated value
     render()
     {
+        console.log("Render method is called")
         return(
             <>
                 <h1>Home Component</h1>
+                <h2>
+                {this.state.age}
+                <hr/>
+                    {this.state.firstName}
+                    <hr/>
+                    {this.newAddress}
+                </h2>
+                <h3>{this.state.user && this.state.user.session}</h3>
+                <button onClick={this.onclick}>Change First Name</button>
+
+                {/* <button onClick={this.onclick}> Changed Name</button> */}
             </>
         )
     }
 }
 
 
+//we should use default props to assign default values to the properties that we use in our component
+//but a new value of user did not replace this default
+// Home.defaultProps = {
+//     user : {
+//         session : "The Default Session Value",
+//         address : "The Default Address"
+//     }
+// }
 
 
+//proptypes are used to mark the properties we use in the component as required so that it shows waring if not present
+//and can be fixed
+
+// Home.propTypes = {
+//     user : PropTypes.string.isRequired
+// }
 
 
 

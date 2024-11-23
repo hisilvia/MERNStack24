@@ -23,18 +23,18 @@ export default function Footer(props) { //props - a data object to share data fr
     )
 }
 
-{/* <div>
-                <b><hr/>{props.name}</b>
-            </div>
+            // <div>
+            //     <b><hr/>{props.name}</b>
+            // </div>
             
-            {props.children && props.children.length > 0 ?
-                <div>
-                    {props.children[0]}
-                    {props.children[1]}
-                </div>
-                : 
-                <div>
-                    {props.user.address}
-                    {props.user.session}
-                </div>
-            } */}
+            // {props.children && props.children.length > 0 ?
+            //     <div>
+            //         {props.children[0]}
+            //         {props.children[1]}
+            //     </div>
+            //     : 
+            //     <div>
+            //         {props.user.address}
+            //         {props.user.session}
+            //     </div>
+            // } 

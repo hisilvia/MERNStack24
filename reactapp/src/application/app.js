@@ -5,7 +5,7 @@ import Footer from "./CommonComponents/FooterComponent";
 import Header from "./CommonComponents/HeaderComponent";
 import { AppCopy } from "./CommonComponents/AppCopy";
 import Me  from "./CommonComponents/MyComponent";
-import {Home} from "./CommonComponents/HomeComponent";
+import Home from "./CommonComponents/HomeComponent";
 import About from "./CommonComponents/AboutComponent";
 import NotFound from "./CommonComponents/NotFoundComponent";
 
@@ -32,19 +32,19 @@ export default class Application extends React.Component {
         
         return(
             <Router>
-            <Header/>
-            <Routes>
-                <Route path="/" element={<Home />}/>
-                <Route path="home" element={<Home />}/>
-                <Route path="app" element={<AppCopy />} />
-                <Route path="about" element={<About />} />
-                <Route path="about/:id" element={<About />} />
-                <Route path="*" element={<NotFound />}/>
+                <Header/>
+                    <Routes>
+                        <Route path="/" element={<Home user={this.state.user}/>}/>
+                        <Route path="home" element={<Home />}/>
+                        <Route path="app" element={<AppCopy />} />
+                        <Route path="about" element={<About />} />
+                        <Route path="about/:id" element={<About />} />
+                        <Route path="*" element={<NotFound />}/>
 
-                <Route path="me" element={<Me />} />
-            </Routes>
-            <Footer/>
-        </Router>
+                        <Route path="me" element={<Me />} />
+                    </Routes>
+                <Footer/>
+            </Router>
        )
     }
 }
