@@ -120,9 +120,9 @@ export default class Home extends Component {
         // console.log("prevState",prevState);
         // console.log("prevProps", prevProps);
 
-        this.setState({
-            uState : prevState.uState
-        })
+        // this.setState({
+        //     uState : prevState.uState
+        // })
     }
 
     //destruction
@@ -159,12 +159,12 @@ export default class Home extends Component {
 
 //we should use default props to assign default values to the properties that we use in our component
 //but a new value of user did not replace this default
-// Home.defaultProps = {
-//     user : {
-//         session : "The Default Session Value",
-//         address : "The Default Address"
-//     }
-// }
+Home.defaultProps = {
+    user : {
+        session : "The Default Session Value",
+        address : "The Default Address"
+    }
+}
 
 
 //proptypes are used to mark the properties we use in the component as required so that it shows waring if not present
