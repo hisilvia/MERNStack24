@@ -5,8 +5,7 @@ let Footer = ()=>{
     return (
         <>
             <div>
-                © Copyright 2023 All rights reserved. &nbsp;|&nbsp; 
-                
+                © Copyright 2023 All rights reserved. 
             </div>
         
         </>

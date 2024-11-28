@@ -12,15 +12,16 @@ export default class Header extends Component {
 
         return (
             <>
-                <h2>Hi {this.author} , Welcome to my page</h2>
+                <h2>Hi {this.author} , Welcome to my header page</h2>
             
                 <div>
                     <NavLink to="/home"  className="button" activeclassname="true"> Home </NavLink>
-                    <NavLink to="/webpack"  className="button" activeclassname="true"> Mywebpack </NavLink>
+                    <NavLink to="/about"  className="button" activeclassname="true"> About </NavLink>
+                    {/* <NavLink to="/webpack"  className="button" activeclassname="true"> Mywebpack </NavLink>
                     <NavLink to="/react"  className="button" activeclassname="true"> Myreact </NavLink>
                     <NavLink to="/router"  className="button" activeclassname="true"> Myrouter</NavLink>
                     <NavLink to="/vdom"  className="button" activeclassname="true"> Myvdom </NavLink>
-                    <NavLink to="/ptypes"  className="button" activeclassname="true"> Myptypes </NavLink>
+                    <NavLink to="/ptypes"  className="button" activeclassname="true"> Myptypes </NavLink> */}
                 </div>
                 <hr/>
             

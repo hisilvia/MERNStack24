@@ -380,7 +380,7 @@ optgroup {
 }
 .loadimage{
   /* background: url("https://www.synergisticit.com/wp-content/themes/synergisticit/images/hm_pic4.jpg") right no-repeat; */
-  background: url('./images/hm_pic4.jpg') right no-repeat;
+  background: url('#') right no-repeat;
   background-repeat: no-repeat;
   background-position: right;
   height: 450px;

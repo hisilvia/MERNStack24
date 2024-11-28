@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-//import "./app.css";
-import Header from "./component/HeaderComponent";
-import Footer from "./component/FooterComponent";
-import Home, { Mywebpack, Myreact, Myrouter, Myvdom, Myptypes } from "./component/HomeComponent";
+import "./app.css";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
+import Home from "./component/Home";
+import About from "./component/About";
 
 
 
@@ -42,11 +43,9 @@ export default class Application extends React.Component {
                         <Routes>
                             <Route path="/" element={<Home user={this.state.user}/>}/>
                             <Route path="home" element={<Home />}/>
-                            <Route path="webpack" element={<Mywebpack />} />
-                            <Route path="react" element={<Myreact />} />
-                            <Route path="router" element={<Myrouter />} />
-                            <Route path="vdom" element={<Myvdom/>} />
-                            <Route path="ptypes" element={<Myptypes />} />
+                            <Route path="about" element={<About />}/>
+                            <Route path="about/:id" element={<About />} />
+                            
                             {/* <Route path="*" element={<NotFound />}/> */}
 
                         </Routes>
