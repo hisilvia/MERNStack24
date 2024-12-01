@@ -93,10 +93,6 @@ export default class Home extends Component {
 
     shouldComponentUpdate(nextPops, nextState){
         console.log("shouldComponentUpdate method is called")
-        // console.log("nextPops ", nextPops)
-        // console.log("nextState ", nextState)
-        // console.log("this.state.first =", this.state.firstName)
-        // console.log("nextState.firstName =", nextState.firstName)
 
         if (this.state.topicName == nextState.topicName ) {
             return false // should not call render method to create virtual dom - as no change in firstName
@@ -108,14 +104,6 @@ export default class Home extends Component {
      //update life cycle methods called after render
      getSnapshotBeforeUpdate(prevState, prevProps){
         console.log("getSnapshotBeforeUpdate");
-        // console.log("prevState", prevState);
-        // console.log("prevProps", prevProps);
-
-
-        // this.prevUser = prevState.user;
-        // this.setState({
-        //     user : this.prevUser
-        // })
 
         return {
             prevState,
@@ -125,9 +113,7 @@ export default class Home extends Component {
 
     componentDidUpdate(prevState, prevProps){
         console.log("componentDidUpdate");
-        // console.log("prevState",prevState);
-        // console.log("prevProps", prevProps);
-
+       
         // this.setState({
         //     uState : prevState.uState
         // })
@@ -136,16 +122,11 @@ export default class Home extends Component {
     //destruction
     componentWillUnmount(){
         console.log("componentWillUnmount is called")
-        //clearInterval(this.incrementAgeLoop)
+        
     }
-
-    
 
     render () {
         return (
-
-            
-
             <>
                 <h2>{this.state.topicName}</h2>
 
@@ -153,9 +134,7 @@ export default class Home extends Component {
                 <button onClick={this.handleReactClick}>React</button>
                 <button onClick={this.handleRouterClick}>Router</button>
                 <button onClick={this.handleVirtualDOMClick}>Virtual Dom</button>
-                <button onClick={this.handlePropTypesClick}>PropTypes</button>
-                
-            
+                <button onClick={this.handlePropTypesClick}>PropTypes</button>  
             </>
         )
     }
