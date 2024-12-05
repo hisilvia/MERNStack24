@@ -48,7 +48,7 @@
 //     "webpack-dev-server": "^4.15.1" // front end application host
 //   },
 
-//npm i -D @babel/core @babel/preset-env @babel/preset-react html-webpack-plugin style-loader webpack-cli webpack-dev-server babel-loader
+//npm i -D @babel/core @babel/preset-env @babel/preset-react html-webpack-plugin style-loader webpack-cli webpack-dev-server babel-loader css-loader
 
 
 //copy the package.json 

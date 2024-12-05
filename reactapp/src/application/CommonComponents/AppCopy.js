@@ -1,5 +1,6 @@
 import React from "react";
 import Me  from "./MyComponent";
+import ChildComponent from "./ChildComponent";
 
 export class AppCopy extends React.Component {
     constructor(props) {
@@ -11,7 +12,10 @@ export class AppCopy extends React.Component {
             user : {
                 address : "Somewhere on earth",
                 session : "Somehwere on webex"
-            }
+            },
+
+            newYearWishes : "Happy New Year!! 2024"
+
         }
     }
 
@@ -28,6 +32,14 @@ export class AppCopy extends React.Component {
         console.log("After setstate called", this.state.userName)
         evt.preventDefault();
     }
+
+    //even to be executed in child component
+    changeMessageFromChild = (msg)=>{
+        this.setState({
+            newYearWishes : msg
+        })
+    }
+
 
     //render - method is responsible to create virtual dom for every change of state or props
     render(){
@@ -48,7 +60,10 @@ export class AppCopy extends React.Component {
             <button onClick={this.onclick}> Change Name</button>
 
             <hr/>
-            <h3>AppCopy</h3> 
+            {/* <h3>AppCopy</h3>  */}
+            <h3>{this.state.newYearWishes}</h3>
+
+            <ChildComponent callBackEvent={this.changeMessageFromChild} />
             <Me />
         </>)
     }
