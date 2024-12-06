@@ -2,6 +2,8 @@ console.log("the entry point of our front end application which needs to be used
 
 import React from "react";
 import * as ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import Store from "./application/State/Store";
 
 import Application from "./application/app";
 
@@ -10,8 +12,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //bootstrapping react application in root element of index.html
 root.render(  //first time when our virtual dom is created and loads
-       
+            <Provider store={Store}>
                 <Application/>
+            </Provider>
+                
        
         
 )

@@ -1,8 +1,8 @@
-import React, { useState } from "react";   // { useState } - named import and can be imported many named ones
-import { useParams } from "react-router-dom";
+import React, { useState} from "react";   // { useState } - named import and can be imported many named ones
+import { useParams, useNavigate } from "react-router-dom";
 
 //a functional component using arrow function
-let About = ()=>{
+let About = (props)=>{
     let params = useParams(); 
     let param = params && params["id"] ? params["id"]: "No Params"; 
     

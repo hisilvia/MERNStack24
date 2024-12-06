@@ -8,6 +8,9 @@ import Me  from "./CommonComponents/MyComponent";
 import Home from "./CommonComponents/HomeComponent";
 import About from "./CommonComponents/AboutComponent";
 import NotFound from "./CommonComponents/NotFoundComponent";
+import PracticeLifeCycle from "./CommonComponents/PracticeLifeCycle";
+import UserComponent from "./ApplicationComponents/User/UserComponent";
+
 
 export default class Application extends React.Component {
 
@@ -36,12 +39,14 @@ export default class Application extends React.Component {
                     <Routes>
                         <Route path="/" element={<Home user={this.state.user}/>}/>
                         <Route path="home" element={<Home />}/>
+                        <Route path="login" element={<UserComponent />}/>
                         <Route path="app" element={<AppCopy />} />
                         <Route path="about" element={<About />} />
                         <Route path="about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />}/>
 
                         <Route path="me" element={<Me />} />
+                        <Route path="lifecycle" element={<PracticeLifeCycle />} />
                     </Routes>
                 <Footer/>
             </Router>

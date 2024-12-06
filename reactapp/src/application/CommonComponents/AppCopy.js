@@ -53,8 +53,8 @@ export class AppCopy extends React.Component {
                 return <h2>{name}</h2>}
             )}
             <h3>Still Working</h3>
-            {nameListWorking && nameListWorking.map((name)=>{ //nameListWorking && => checks if variable is not null and undefined
-                return <b><hr/>{name}</b>})}
+            {nameListWorking && nameListWorking.map((key,name)=>{ //nameListWorking && => checks if variable is not null and undefined
+                return <b><hr/>{key} {name}</b>})}
             <hr/>
             <h2 name="h2_element">{this.state.userName}</h2>
             <button onClick={this.onclick}> Change Name</button>

@@ -30,8 +30,8 @@ export default class Home extends Component {
 
         //we can use ref keyword to make direct access of html elements and its events
         //and once done with the udpate of values should put back the data to state
-        this.refAddress = React.createRef();
-        this.refSession = React.createRef();
+        // this.refAddress = React.createRef();
+        // this.refSession = React.createRef();
     }
 
     //Creation LC - last one in creation life cycle method/hook and also called once after the render
@@ -43,6 +43,10 @@ export default class Home extends Component {
             this.setState({
                 firstName : "The changed name"
             })
+
+            this.refAddress.current.value = "New Address",
+            this.refSession.current.value = "React Component"
+
         }, 3000);
     }
 
@@ -52,7 +56,7 @@ export default class Home extends Component {
 
     //Since we use PureComponent for class component, we do not need this shouldComponentUpdate() method.
     //If we still use component instead of PureComponent, we need to use this shouldComponentUpdate() method!
-/*
+
     shouldComponentUpdate(nextPops, nextState){
         console.log("shouldComponentUpdate method is called")
         // console.log("nextPops ", nextPops)
@@ -66,7 +70,7 @@ export default class Home extends Component {
             return true // keep calling render method     
         }
     }
-*/
+
     onclick = (evt)=>{
         console.log("Name change click is clicked")
         
@@ -74,15 +78,15 @@ export default class Home extends Component {
         this.newAddress = "Somewhere on France!!"
 
         // the advised way to show the change value in react rendering
-        // this.setState({
-        //     firstName : "Sierra"
-        // })
+        this.setState({
+            firstName : "Sierra"
+        })
 
 
         //force update - api can be used to call render method directly, which skips shouldComponentUpdate() method
         //not a suggested way to udpate the state unless its required to skip
-        this.state.firstName = "Hong Bo",
-        this.forceUpdate();
+        // this.state.firstName = "Hong Bo",
+        // this.forceUpdate();
 
         //console.log("After setstate called", this.state.userName)
         evt.preventDefault();
@@ -137,7 +141,7 @@ export default class Home extends Component {
     //in this LC method we must remove all subscriptions and server calls made in the component
     componentWillUnmount(){
         console.log("componentWillUnmount is called")
-        clearInterval(this.incrementAgeLoop)
+        //clearInterval(this.incrementAgeLoop)
     }
 
     //is the event listener for any text change on the text
@@ -213,6 +217,9 @@ export default class Home extends Component {
                              <input type="text" className="form-control textbox userName" value={this.state.userName}
                                  placeholder="Please provide user name" onChange={this.onTextChange} maxLength={20}></input>
                          </div>
+                         <div className="col-md-3">
+                             <b>User Age</b>
+                         </div>
                          <div className="col-md-7">
                              <input type="number" className="form-control textbox userAge" value={this.state.age}
                              placeholder="Please provide user age" onChange={this.onTextChange} max={120}></input>
@@ -220,9 +227,7 @@ export default class Home extends Component {
 
                          <div className="col-md-3">
                          <button className={"form-control btn btn-primary col-md-1"} 
-                             onClick={this.onclick}> 
-                         Update Name 
-                         </button>
+                             onClick={this.onclick}>Update Name </button>
                          </div>
                      </div>
                 </div>
