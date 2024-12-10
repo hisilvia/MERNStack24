@@ -4,18 +4,19 @@ import * as actionTypes from "../ActionTypes";
 let initialState = {
     user : {
         userName : "Reduxer user name",
-        password : "",
-        street : "",
-        mobile :0
+        password : "sjdja",
+        street : "earth",
+        mobile :1
     }
 }
 
 //this will be used by store to map the action type and then update/create new user state
 let UserReducer = (state=initialState, action)=>{
-
+    console.log("User Reducer ", action.payload);
+    
     switch (action.type) {
         case actionTypes.ADD_USER_TO_STORE:
-            return {...state, user : action.payload.user}    
+            return {...state, user : action.payload}    
 
             break;
     

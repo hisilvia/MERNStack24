@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import { AddUserToStore } from "../../../state/User/userAction";
+import { AddUserToStore } from "../../State/User/UserActions";
 
 
 class UserComponent extends Component{
@@ -10,9 +10,10 @@ class UserComponent extends Component{
 
         this.state = {
             userName : props.user.userName, // we need to read from store using props through container
-            password : "",//props.user.password,
-            street : "",//props.user.street,
-            mobile : "",//props.user.mobile
+                                            // user is from UserReducer.js
+            password : props.user.password,
+            street : props.user.street,
+            mobile : props.user.mobile
         }
     }
 
@@ -39,7 +40,7 @@ class UserComponent extends Component{
         alert("Logged Innn -"+JSON.stringify(newUser))
 
         //upon user action to login we send user to store
-        //this.props.addUser(newUser);
+        this.props.addUser(newUser);    //line 106: addUser()
         
         //this.props.loginUser(newUser) //will go to usercontainer => useraction => server(db) => store => userreducer
 
@@ -89,24 +90,26 @@ class UserComponent extends Component{
     }
 }
 
+
 //mapstatetoprops -- allows component to become subscriber
 
 let mapStateToProps = (store) => { //store is the redux states
     return {
         user : store.UserReducer.user
-    //user - will be accessed as props.user in component
+    //user - will be accessed as props.user in component which is a UserReducer
     }
 }
 
-// //mapDispatchToProps -- allows us to send data back to store to update in reducer
-// let mapDispatchToProps = (dispatch)=>{
-//     return {
-//         addUser : (user)=>{
-//             dispatch(AddUserToStore(user))
-//         }
-//     }
-// }
+//mapDispatchToProps -- allows us to send data back to store to update in reducer
+//dispatch - this dispatcher we get from connect to send action to store
+let mapDispatchToProps = (dispatch)=>{
+    return {
+        addUser : (user)=>{
+            dispatch(AddUserToStore(user))
+        }
+    }
+}
 
 
-// //connect accepts - mapStateToProps - for subscribing and mapDispatchToProps - for publishing
-export default connect(mapStateToProps, null)(UserComponent)
+//connect accepts - mapStateToProps - for subscribing and mapDispatchToProps - for publishing
+export default connect(mapStateToProps, mapDispatchToProps)(UserComponent)

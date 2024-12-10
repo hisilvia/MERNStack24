@@ -24,8 +24,8 @@ export default class Home extends Component {
 
         this.newAddress = "Somewhere on earth!!";
         
-        this.incrementAgeLoop = null;
-        this.incrementAgeVal = 17;
+        // this.incrementAgeLoop = null;
+        // this.incrementAgeVal = 17;
         //this.incrementAge();
 
         //we can use ref keyword to make direct access of html elements and its events

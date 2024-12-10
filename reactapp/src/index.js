@@ -2,8 +2,8 @@ console.log("the entry point of our front end application which needs to be used
 
 import React from "react";
 import * as ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import Store from "./application/State/Store";
+import { Provider } from "react-redux";  //the component used to set store as parent to all application components
+import Store from "./application/State/Store";  //store will act as the parent of all the components to access props
 
 import Application from "./application/app";
 

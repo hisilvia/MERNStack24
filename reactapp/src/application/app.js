@@ -40,6 +40,7 @@ export default class Application extends React.Component {
                         <Route path="/" element={<Home user={this.state.user}/>}/>
                         <Route path="home" element={<Home />}/>
                         <Route path="login" element={<UserComponent />}/>
+                        {/* <Route path="login" element={<UserContainer/>}/> */}
                         <Route path="app" element={<AppCopy />} />
                         <Route path="about" element={<About />} />
                         <Route path="about/:id" element={<About />} />
