@@ -2,9 +2,11 @@ const express = require('express')     //import package
 const app = express()                  //initializing the express application
 
 const defaultRoutes = require("./Routes/defaultRoute")
+const userRoutes = require("./Routes/userRoute")
 
 //we can have multiple express applications running in our single project
 const adminApp = express()             //initialzing the express application
+const userApp = express()
 
 //assume we have multiple sessions: user, product, cart
 
@@ -18,6 +20,8 @@ adminApp.get("/hello",(req, res)=>{
   res.send("This response comes from Admin App")
 })
 
+app.use("/user", userApp)
+userApp.use("/", userRoutes);//redirecting all the calls having user in it to user router
 
 app.use("/",defaultRoutes)
 
@@ -26,8 +30,8 @@ app.get('*', function (req, res) {
     res.send('API is not ready yet')
 })
 
-console.log('API is listening at port 3000')
-app.listen(3000)
+console.log('API is listening at port 9000')
+app.listen(9000)
 
 
 
