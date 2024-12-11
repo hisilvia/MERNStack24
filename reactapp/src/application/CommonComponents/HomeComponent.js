@@ -24,14 +24,19 @@ export default class Home extends Component {
 
         this.newAddress = "Somewhere on earth!!";
         
-        // this.incrementAgeLoop = null;
-        // this.incrementAgeVal = 17;
+        this.incrementAgeLoop = null;
+        this.incrementAgeVal = 17;
         //this.incrementAge();
 
         //we can use ref keyword to make direct access of html elements and its events
         //and once done with the udpate of values should put back the data to state
-        // this.refAddress = React.createRef();
-        // this.refSession = React.createRef();
+        this.refAddress = React.createRef();
+        this.refSession = React.createRef();
+
+        // html can't be accessed as no rendering is done yet
+        // this.refAddress.current.value = "New Address",
+        // this.refSession.current.value = "React Component"
+
     }
 
     //Creation LC - last one in creation life cycle method/hook and also called once after the render
@@ -44,8 +49,8 @@ export default class Home extends Component {
                 firstName : "The changed name"
             })
 
-            this.refAddress.current.value = "New Address",
-            this.refSession.current.value = "React Component"
+            // this.refAddress.current.value = "New Address",
+            // this.refSession.current.value = "React Component"
 
         }, 3000);
     }
@@ -147,7 +152,7 @@ export default class Home extends Component {
     //is the event listener for any text change on the text
     onTextChange = (evt) =>{
         //debugger;
-        let target = evt.target  //target is the html element on which event happened
+        let target = evt.target;  //target is the html element on which event happened
         //console.log(target)
         
         let classList = target.classList;

@@ -20,6 +20,10 @@ expsRouter.get('/', function (req, res) {
       res.sendFile(__dirname+'/index.html')
   })
   
+  expsRouter.get('/getfile2',(req, res)=>{
+    res.sendFile(__dirname+'/alert_info.js')
+})
+
   //passing data in url - api : path
   //a. query string - ? after the end point then key value pair separated by &
   // localhost:3000?name=Jimmy&friend=christopher

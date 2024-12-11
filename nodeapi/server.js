@@ -3,6 +3,8 @@ const app = express()                  //initializing the express application
 
 const defaultRoutes = require("./Routes/defaultRoute")
 const userRoutes = require("./Routes/userRoute")
+const cors  = require('cors')
+
 
 //we can have multiple express applications running in our single project
 const adminApp = express()             //initialzing the express application
@@ -11,6 +13,20 @@ const userApp = express()
 //assume we have multiple sessions: user, product, cart
 
 //const router = express.Router({})
+
+//cors - will be used as middleware to bypass at root level or individual api level to allow cross origin access
+app.use(cors());
+
+//setting up the middleware static to handle all the static files we need to serve to client
+// serve static files like images css using static middleware 
+/*
+app.use('/static', express.static('public')) //localhost:9000/static/alert_info.js
+          public folder contains two files: index.html and alert-info.js
+          since i did not create this public folder, ignore this line statement
+*/
+//json middle-ware for setting request content type to json in body
+app.use(express.json({limit:'2mb', extended:false})); 
+
 
 //application mounting 
 app.use("/admin",adminApp)
