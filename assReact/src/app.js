@@ -4,6 +4,7 @@ import "./app.css";
 import Success from "./component/Success";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
+import StudentComponent from "./component/student/StudentComponent";
 import UserSignIn from "./component/UserSignIn";
 import SuccessStory from "./component/SuccessStory";
 import Lifecyle from "./component/Lifecyle";
@@ -26,7 +27,7 @@ export default class Application extends React.Component {
         return(
 
             <>
-               <div>  Hey This Is My React Accessment.</div>
+               <div>  Hey {this.state.user}, This Is My React Accessment.</div>
 
                 <Router>
                     <Header/>
@@ -34,6 +35,7 @@ export default class Application extends React.Component {
                             <Route path="/" element={<Success user={this.state.user}/>}/>
                             <Route path="success" element={<Success />}/>
                             {/* <Route path="child" element={<SuccessChild />}/> */}
+                            <Route path="login" element={<StudentComponent />}/>
                             <Route path="sign" element={<UserSignIn />}/>
                             <Route path="story" element={<SuccessStory />}/>
                             <Route path="lifecyle" element={<Lifecyle />}/>

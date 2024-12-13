@@ -528,6 +528,10 @@ i[class*=" icon-"]:before {
 .saveUser{
   max-width: 25%;
 }
+
+.saveStudent{
+  max-width: 25%;
+}
 [aria-current] {
   border: 1px solid red!important;
   background-color: rgb(201, 80, 64)!important;
