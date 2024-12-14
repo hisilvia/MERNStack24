@@ -17,7 +17,7 @@ export const AddStudentToStore = (student)=>{
 export const SaveStudentToDBUsingFetch = (studentObj)=>{
     console.log("SaveStudentToDBUsingFetch called")
     return (dispatch)=>{
-        window.fetch("http://localhost:9000/student/api/signinup",
+        window.fetch("http://localhost:8000/student/api/signinup",
             {
                 method: 'POST',
                 headers: {
@@ -34,7 +34,7 @@ export const SaveStudentToDBUsingFetch = (studentObj)=>{
             .catch((error)=>console.log(error))
         }
 }
-
+/*
 export const SaveStudentToDBUsingAxios = (studentDataObj)=>{
     console.log("SaveStudentToDBUsingAxios called")
     return (dispatch)=>{
@@ -48,3 +48,4 @@ export const SaveStudentToDBUsingAxios = (studentDataObj)=>{
         .catch((error)=>console.log(error))
     }
 }
+    */

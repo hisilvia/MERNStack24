@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { AddStudentToStore, SaveStudentToDBUsingFetch, SaveStudentToDBUsingAxios } from "../../state/StudentActions";
-
+import { AddStudentToStore, SaveStudentToDBUsingFetch } from "../../state/StudentActions";
+//import { SaveStudentToDBUsingAxios } from "../../state/StudentActions";
 
 class StudentComponent extends Component{
 
@@ -78,7 +78,7 @@ class StudentComponent extends Component{
                                 onChange={this.onTextChange} />
                             </div> */}
 
-                            <input type="button" className={"btn btn-primary col-md-2 saveStudent"} 
+                            <input type="submit" className={"btn btn-primary col-md-2 saveStudent"} 
                                     value={"SignIn-Up"} 
                                     onClick={this.loginStudent}/>
                                     
