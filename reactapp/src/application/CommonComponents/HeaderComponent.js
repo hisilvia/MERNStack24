@@ -25,7 +25,9 @@ let Header = (props) => {
             }
             <div>
                 <NavLink to="/home"  className="button" activeclassname="true"> Home </NavLink>
-                <NavLink to="/login"  className="button" activeclassname="true"> User </NavLink>
+                <NavLink to="/login1"  className="button" activeclassname="true"> User1 </NavLink>
+                <NavLink to="/login2"  className="button" activeclassname="true"> User2 </NavLink>
+                <NavLink to="/login3"  className="button" activeclassname="true"> User3 </NavLink>
                 <NavLink to="/app"  className="button" activeclassname="true"> AppCopy </NavLink>
                 <NavLink to="/about"  className="button" activeclassname="true"> About </NavLink>
                 <NavLink to="/about/2500"  className="button" activeclassname="true"> About with Param</NavLink>

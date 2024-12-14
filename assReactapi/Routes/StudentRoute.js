@@ -1,9 +1,6 @@
 const express = require('express') //import package
-const studentRouter = express.Router({strict:true, caseSensitive: true}) // a separate route table to create and handle our api's
 const studentDataModel = require('../DataModel/StudentDataModel');
-//const userDataModel = require('../DataModel/UserDataModel');
-
-
+const studentRouter = express.Router({strict:true, caseSensitive: true}) // a separate route table to create and handle our api's
 
 studentRouter.post("/api/signinup",(req, res)=>{
 

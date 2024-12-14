@@ -16,6 +16,6 @@ let studentSchema = new schemaObj({
 // }
 )
 
-let StudentModel = mongooseObj.model("student", studentSchema);//user - collection name, pluralised by mongodb
+let StudentModel = mongooseObj.model("student", studentSchema);//student - collection name, pluralised by mongodb
 
 module.exports = StudentModel; //with capability to retrieve save udpate queries with mongo db
