@@ -9,6 +9,8 @@ import UserSignIn from "./component/UserSignIn";
 import SuccessStory from "./component/SuccessStory";
 import Lifecyle from "./component/Lifecyle";
 import SuccessChild from "./component/SuccessChild";
+import StudentHooksWithUseRef from "./component/student/StudentHooksWithUseRef";
+import StudentHooksWithUseState from "./component/student/StudentHooksWithUseState";
 
 export default class Application extends React.Component {
 
@@ -35,7 +37,9 @@ export default class Application extends React.Component {
                             <Route path="/" element={<Success user={this.state.user}/>}/>
                             <Route path="success" element={<Success />}/>
                             {/* <Route path="child" element={<SuccessChild />}/> */}
-                            <Route path="login" element={<StudentComponent />}/>
+                            <Route path="login1" element={<StudentComponent />}/>
+                            <Route path="login2" element={<StudentHooksWithUseRef />}/>
+                            <Route path="login3" element={<StudentHooksWithUseState />}/>
                             <Route path="sign" element={<UserSignIn />}/>
                             <Route path="story" element={<SuccessStory />}/>
                             <Route path="lifecyle" element={<Lifecyle />}/>

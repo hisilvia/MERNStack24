@@ -1,10 +1,10 @@
 //hooks are the independent functions build perform the tasks we have to do with states, reducers etc
-import React, { userState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { AddUserToStore, SaveUserToDBUsingFetch, SaveUserToDBUsingAxios } from "../../State/User/UserActions";
 
 
-let UserHooksComponent =(props) => {
+let UserHooksWithUseRef =(props) => {
 
 
     //to subscribe we need to implement - mapStateToProps and its equivalent hook is userSelector
@@ -58,8 +58,8 @@ let UserHooksComponent =(props) => {
             mobile: mobile.current.value
         }
         alert(JSON.stringify(userObj));
-        //dispatcher(AddUserToStore(userObj))
-        //dispatcher(SaveUserToDBUsingAxios(userObj))
+        //dispatcher(AddUserToStore(userObj))    //works well
+        //dispatcher(SaveUserToDBUsingAxios(userObj))  //works well
         dispatcher(SaveUserToDBUsingFetch(userObj))
         
        
@@ -81,4 +81,4 @@ let UserHooksComponent =(props) => {
 
 }
 
-export default UserHooksComponent;
+export default UserHooksWithUseRef;

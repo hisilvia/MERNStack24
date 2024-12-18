@@ -34,12 +34,12 @@ export const SaveStudentToDBUsingFetch = (studentObj)=>{
             .catch((error)=>console.log(error))
         }
 }
-/*
-export const SaveStudentToDBUsingAxios = (studentDataObj)=>{
+
+export const SaveStudentToDBUsingAxios = (studentObj)=>{
     console.log("SaveStudentToDBUsingAxios called")
     return (dispatch)=>{
-        axios.post("http://localhost:9000/student/api/signinup",//uri or end point of singninup api
-            userObj // the user state object we dispatch from the user component
+        axios.post("http://localhost:8000/student/api/signinup",//uri or end point of singninup api
+            studentObj // the student state object we dispatch from the student component
         ).then((collection)=>{
             let loggedStudent = collection.data
             console.log(loggedStudent)
@@ -48,4 +48,4 @@ export const SaveStudentToDBUsingAxios = (studentDataObj)=>{
         .catch((error)=>console.log(error))
     }
 }
-    */
+    
