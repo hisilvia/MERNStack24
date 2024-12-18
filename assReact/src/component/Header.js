@@ -17,6 +17,8 @@ export default class Header extends Component {
                 <div>
                     <NavLink to="/success"  className="button" activeclassname="true"> Success </NavLink>
                     <NavLink to="/login"  className="button" activeclassname="true"> Student </NavLink>
+
+                    
                     {/* <NavLink to="/child"  className="button" activeclassname="true"> Child</NavLink> */}
                     <NavLink to="/sign"  className="button" activeclassname="true"> Sign </NavLink>
                     {/* <NavLink to="/story"  className="button" activeclassname="true"> Story</NavLink> */}
