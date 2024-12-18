@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./app.css";
-import Success from "./component/Success";
-import Header from "./component/Header";
-import Footer from "./component/Footer";
+import Success from "./component/success/Success";
+import Header from "./component/success/Header";
+import Footer from "./component/success/Footer";
+import UserSignIn from "./component/success/UserSignIn";
+import SuccessStory from "./component/success/SuccessStory";
+import Lifecyle from "./component/success/Lifecyle";
+import SuccessChild from "./component/success/SuccessChild";
+
 import StudentComponent from "./component/student/StudentComponent";
-import UserSignIn from "./component/UserSignIn";
-import SuccessStory from "./component/SuccessStory";
-import Lifecyle from "./component/Lifecyle";
-import SuccessChild from "./component/SuccessChild";
 import StudentHooksWithUseRef from "./component/student/StudentHooksWithUseRef";
 import StudentHooksWithUseState from "./component/student/StudentHooksWithUseState";
 
