@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { AddStudentToStore } from "../../state/StudentActions";
+import { AddStudentToStore } from "../../state/student/StudentActions";
 import StudentComponent from "./StudentComponent";
 
 //mapstatetoprops -- allows component to become subscriber

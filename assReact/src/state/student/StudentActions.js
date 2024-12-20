@@ -1,5 +1,5 @@
 //defines user actions which contains action type and payload for each action creator to dispatch to store
-import * as actionTypes from "./ActionTypes";
+import * as actionTypes from "../ActionTypes";
 import axios from "axios";
 
 //action accepts payload value/object to be used in user reducer switch
@@ -23,8 +23,9 @@ export const SaveStudentToDBUsingFetch = (studentObj)=>{
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(studentObj)}) //JSON object can't travel from client to server so needs to be converted to string
+                },
+                body : JSON.stringify(studentObj)
+            }) //JSON object can't travel from client to server so needs to be converted to string
             .then((response)=>response.json())
             .then((studentData)=>{
                 console.log(studentData)
@@ -32,7 +33,7 @@ export const SaveStudentToDBUsingFetch = (studentObj)=>{
                 dispatch(AddUserToStore(studentData))
             })
             .catch((error)=>console.log(error))
-        }
+    }
 }
 
 export const SaveStudentToDBUsingAxios = (studentObj)=>{

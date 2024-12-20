@@ -20,3 +20,12 @@ export default configureStore(
     {reducer : rootReducer},
     {},//inital state if we want to set from store instead of reducer
 )
+
+//Date: 2024-12-18
+//Redux - the data management library for front-end application (not just react) -not react we also can do it
+//Five steps:
+//1.Reducers ==><callback functions - with switch case using action <type and payload>>
+//2.Actions  ==>action object consists of <type and payload>
+//3.ActionCreator  ==>can be understood as the event handler call from the front end
+//4.Dispatch ==>creates a 
+//5.Store

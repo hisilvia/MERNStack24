@@ -18,8 +18,6 @@ let UserReducer = (state=initialState, action)=>{
         case actionTypes.ADD_USER_TO_STORE:
             return {...state, user : action.payload}    
 
-            break;
-    
         default:
             return state;
             break;

@@ -5,6 +5,9 @@ const app = express()
 const studentApp = express()
 const studentRoutes = require("./Routes/StudentRoute")
 
+const productApp = express()
+const productRoutes = require("./Routes/ProductRoute")
+
 //cors - will be used as middleware to bypass at root level or individual api level to allow cross origin access
 app.use(cors());
 
@@ -14,6 +17,9 @@ app.use(express.json({limit:'2mb', extended:false}));
 app.use("/student", studentApp)
 studentApp.use("/", studentRoutes);//redirecting all the calls having user in it to user router
 
+
+app.use("/product", productApp)
+productApp.use("/", productRoutes);
 //star or wild card operator
 app.get('*', function (req, res) {
     res.send('API is not ready yet')

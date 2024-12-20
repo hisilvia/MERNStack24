@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { AddStudentToStore, SaveStudentToDBUsingFetch } from "../../state/StudentActions";
+import { AddStudentToStore, SaveStudentToDBUsingFetch } from "../../state/student/StudentActions";
 //import { SaveStudentToDBUsingAxios } from "../../state/StudentActions";
 
 class StudentComponent extends Component{

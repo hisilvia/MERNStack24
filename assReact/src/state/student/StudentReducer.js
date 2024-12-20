@@ -1,4 +1,4 @@
-import * as actionTypes from "./ActionTypes";
+import * as actionTypes from "../ActionTypes";
 
 let initialState = {
     student : {
@@ -15,14 +15,9 @@ let StudentReducer = (state=initialState, action)=>{
     switch (action.type) {
         case actionTypes.ADD_STUDENT_TO_STORE:
             return {...state, student : action.payload}    
-
-            break;
     
         default:
-            return state;
-            break;
+            return state;           
     }
-
 }
-
 export default StudentReducer;

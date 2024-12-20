@@ -1,6 +1,6 @@
 import React, {useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { AddStudentToStore, SaveStudentToDBUsingFetch } from '../../state/StudentActions';
+import { AddStudentToStore, SaveStudentToDBUsingFetch } from '../../state/student/StudentActions';
 
 
 let StudentHooksWithUseRef = (props) => {

@@ -13,6 +13,7 @@ export default class Home extends Component {
         super(props);
 
         this.state= {
+            title: "Shop with below facilities",
             userName: "Default user name",
             address: "Default Address",
             session: "Default MERNStack",
@@ -193,6 +194,27 @@ export default class Home extends Component {
         console.log("Render method is called")
         return(
             <>
+                <div className={"loadimage form"} style={{border:"1px solid red"}}>
+                    <h1>{this.state.title}</h1>
+                    <b className="feature">{"Product Feature's :"}</b>
+                    <ul>                     
+                        <li>Sign up new users</li>
+                        <li>Login existing users.</li>                
+                        <li>Allow user's to add to cart.</li>
+                        <li>Save the user's cart.</li>
+                        <li>Checkout and pay for items.</li>
+                        <li>Allow users to cancel the order.</li>
+                        <li>Allow users to reorder the cart.</li>
+                        <li>Add products/items to create product collection.</li>
+                        <li>Allow users to give ratings to each product.</li>
+                        <li>Have notifications on top right with logout.</li>
+                    </ul>
+                    <hr/>
+                </div>
+               
+                <hr/>
+                <hr/>
+
                 <h1>Home Component</h1>
                 {/* <h2>
                 {this.state.age}

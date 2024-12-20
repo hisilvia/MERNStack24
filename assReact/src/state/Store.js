@@ -8,11 +8,13 @@
 import { combineReducers, applyMiddleware } from "redux";
 import { configureStore } from '@reduxjs/toolkit';
 
-import StudentReducer from "./StudentReducer";
+import StudentReducer from "./student/StudentReducer";
+import ProductReducer from "./product/ProductReducer";
 
 //we can add multiple reducers and combine them togather to have one root reducer and add it to store
 let rootReducer = combineReducers({  
-    StudentReducer //userReducer : userReducer    
+    StudentReducer, //userReducer : userReducer  
+    ProductReducer
 })
 
 //create or configure and export the store from this code
