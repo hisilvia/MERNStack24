@@ -2,6 +2,7 @@ import React,{ useEffect, useRef} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { SaveProductToDBUsingAxios, SaveProductToDBUsingFetch, AddProductToStore } from '../../state/product/ProductActions';
 
+import { useNavigate } from 'react-router-dom';
 let ProductComponent = (props) => {
 
     let product = useSelector((store)=>store.ProductReducer.product)
@@ -42,9 +43,16 @@ let ProductComponent = (props) => {
 
     }
 
+    const navigate = useNavigate();
+
+    let handleAddClick =()=> {
+        navigate('/cart');
+    }
+
+
     return (
         <>
-             <h1>Product Login Page</h1>
+            <h1>Product Page</h1>
             <section className={"componentClass"}>
                 <div className="form col-md-8">
                     <div className="col-md-12">
@@ -59,7 +67,7 @@ let ProductComponent = (props) => {
 
                     <div className="col-md-12">
                         <b>Description </b>
-                        <input type="text" placeholder="Please type desc" ref={desc} maxLength={20} />
+                        <textarea type="textarea" placeholder="Please type desc" ref={desc} maxLength={20} />
                     </div>
 
                     <div className="col-md-12">
@@ -67,7 +75,10 @@ let ProductComponent = (props) => {
                         <input type="text" placeholder="Please type rating" ref={rating} maxLength={20} />
                     </div>
                     <input type="submit" className={"btn btn-primary col-md-2 saveUser"} 
-                                    value={"SignIn-Up"} onClick={updateToStore}/>
+                                    value={"Save"} onClick={updateToStore}/>
+                     <input type="submit" className={"btn btn-primary col-md-2 saveUser"} 
+                                    value={"Add"} onClick={handleAddClick}/>
+
                 </div>
             </section>
         

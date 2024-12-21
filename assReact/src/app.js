@@ -13,6 +13,7 @@ import StudentComponent from "./component/student/StudentComponent";
 import StudentHooksWithUseRef from "./component/student/StudentHooksWithUseRef";
 import StudentHooksWithUseState from "./component/student/StudentHooksWithUseState";
 import ProductComponent from "./component/product/ProductComponent";
+import CartComponent from "./component/product/CartComponent";
 
 export default class Application extends React.Component {
 
@@ -31,7 +32,7 @@ export default class Application extends React.Component {
         return(
 
             <>
-               <div>  Hey {this.state.user}, This Is My React Accessment.</div>
+               {/* <div>  Hey {this.state.user}, This Is My React Accessment.</div> */}
 
                 <Router>
                     <Header/>
@@ -44,6 +45,7 @@ export default class Application extends React.Component {
                             <Route path="login3" element={<StudentHooksWithUseState />}/>
                             <Route path="sign" element={<UserSignIn />}/>
                             <Route path="product" element={<ProductComponent />}/>
+                            <Route path="cart" element={<CartComponent />}/>
                             <Route path="story" element={<SuccessStory />}/>
                             <Route path="lifecyle" element={<Lifecyle />}/>
                         </Routes>

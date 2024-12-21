@@ -2,7 +2,7 @@ const express = require('express')
 const productDataModel = require('../DataModel/ProductDataModel');
 const productRouter = express.Router({strict:true, caseSensitive:true})
 
-productRouter.post("/api/register",(req, res)=>{
+productRouter.post("/api/createProduct",(req, res)=>{
 
     let productObj = req.body;
     console.log("productObj", productObj)

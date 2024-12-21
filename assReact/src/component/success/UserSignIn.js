@@ -31,10 +31,12 @@ export default class UserSignIn extends Component {
                     Name:
                     <input type="text" ref={this.refUserName} placeholder="Default"/>
                     </label>
+                    <br/>
                     <label>
                     Role:
                     <input type="text" ref={this.refRole} placeholder="Staff"/>
                     </label>
+                    <br/>
                     <input type="submit" value="Submit" />
                 </form>
 
