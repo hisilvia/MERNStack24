@@ -15,7 +15,7 @@ export const SaveProductToDBUsingFetch = (productObj)=>{
     console.log("SaveProductToDBUsingFetch called")
 
     return (dispatch)=>{
-        window.fetch("http://localhost:8000/product/api/register",
+        window.fetch("http://localhost:8000/product/api/createProduct",
             {
                 method: 'POST',
                 headers: {
@@ -36,7 +36,7 @@ export const SaveProductToDBUsingFetch = (productObj)=>{
 export const SaveProductToDBUsingAxios = (productObj)=>{
     console.log("SaveProductToDBUsingAxios called")
     return (dispatch)=>{
-        axios.post("http://localhost:8000/product/api/register",//uri or end point of singninup api
+        axios.post("http://localhost:8000/product/api/createProduct",//uri or end point of singninup api
             productObj // the student state object we dispatch from the student component
         ).then((collection)=>{
             let loggedProduct = collection.data
