@@ -2,10 +2,10 @@ import * as actionTypes from "../ActionTypes";
 
 let initialState = {
     product: {
-        productName: "bagel",
-        price: 9.99,
-        desc: "bread",
-        rating: 4
+        productName: "",
+        price: '',
+        desc: "",
+        rating: ''
     }
 }
 

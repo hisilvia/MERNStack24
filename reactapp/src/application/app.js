@@ -12,6 +12,7 @@ import PracticeLifeCycle from "./CommonComponents/PracticeLifeCycle";
 import UserComponent from "./ApplicationComponents/User/UserComponent";
 import UserHooksWithUseRef from "./ApplicationComponents/User/UserHooksWithUseRef";
 import UserHooksWithUseState from "./ApplicationComponents/User/UserHooksWithUseState";
+import ProductComponent from "./ApplicationComponents/Product/ProductComponent";
 
 
 export default class Application extends React.Component {
@@ -41,17 +42,17 @@ export default class Application extends React.Component {
                     <Routes>
                         <Route path="/" element={<Home user={this.state.user}/>}/>
                         <Route path="home" element={<Home />}/>
-                        <Route path="login1" element={<UserComponent />}/>
-                        <Route path="login2" element={<UserHooksWithUseRef />}/>
+                        {/* <Route path="login1" element={<UserComponent />}/>
+                        <Route path="login2" element={<UserHooksWithUseRef />}/> */}
                         <Route path="login3" element={<UserHooksWithUseState />}/>
                         {/* <Route path="login" element={<UserContainer/>}/> */}
-                        <Route path="app" element={<AppCopy />} />
-                        <Route path="about" element={<About />} />
+                        {/* <Route path="app" element={<AppCopy />} /> */}
+                        <Route path="product" element={<ProductComponent />} />
+                        {/* <Route path="about" element={<About />} />
                         <Route path="about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />}/>
-
                         <Route path="me" element={<Me />} />
-                        <Route path="lifecycle" element={<PracticeLifeCycle />} />
+                        <Route path="lifecycle" element={<PracticeLifeCycle />} /> */}
                     </Routes>
                 <Footer/>
             </Router>

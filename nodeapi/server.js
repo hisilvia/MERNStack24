@@ -3,12 +3,14 @@ const app = express()                  //initializing the express application
 
 const defaultRoutes = require("./Routes/defaultRoute")
 const userRoutes = require("./Routes/userRoute")
+const productRoute = require("./Routes/productRoute")
 const cors  = require('cors')
 
 
 //we can have multiple express applications running in our single project
-const adminApp = express()             //initialzing the express application
+const adminApp = express()         //initialzing the express application
 const userApp = express()
+const productApp = express()
 
 //assume we have multiple sessions: user, product, cart
 
@@ -38,6 +40,10 @@ adminApp.get("/hello",(req, res)=>{
 
 app.use("/user", userApp)
 userApp.use("/", userRoutes);//redirecting all the calls having user in it to user router
+
+//app.use("/nodeapi", nodeapiApp)
+app.use("/product", productApp)
+productApp.use("/", productRoute);
 
 app.use("/",defaultRoutes)
 

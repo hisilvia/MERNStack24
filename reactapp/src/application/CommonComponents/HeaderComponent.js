@@ -17,22 +17,23 @@ let Header = (props) => {
     //const usrName = props.userName;
     return(
         <>
-            {usrName != "" ? 
+            {/* {usrName != "" ? 
                 <h2>Hi {usrName} , Welcome to Shopping Cart sponsored by Tech Team SIT</h2> 
                 : <h2>Welcome to Shopping Cart sponsored by Tech Team SIT,
                     <h3>Please click on login button to proceed to login</h3>
                 </h2>
-            }
+            } */}
             <div>
                 <NavLink to="/home"  className="button" activeclassname="true"> Home </NavLink>
-                <NavLink to="/login1"  className="button" activeclassname="true"> User1 </NavLink>
-                <NavLink to="/login2"  className="button" activeclassname="true"> User2 </NavLink>
+                {/* <NavLink to="/login1"  className="button" activeclassname="true"> User1 </NavLink>
+                <NavLink to="/login2"  className="button" activeclassname="true"> User2 </NavLink> */}
                 <NavLink to="/login3"  className="button" activeclassname="true"> User3 </NavLink>
-                <NavLink to="/app"  className="button" activeclassname="true"> AppCopy </NavLink>
-                <NavLink to="/about"  className="button" activeclassname="true"> About </NavLink>
+                {/* <NavLink to="/app"  className="button" activeclassname="true"> AppCopy </NavLink> */}
+                <NavLink to="/product"  className="button" activeclassname="true"> Product </NavLink>
+                {/* <NavLink to="/about"  className="button" activeclassname="true"> About </NavLink>
                 <NavLink to="/about/2500"  className="button" activeclassname="true"> About with Param</NavLink>
                 <NavLink to="/me"  className="button" activeclassname="true"> Me </NavLink>
-                <NavLink to="/lifecycle"  className="button" activeclassname="true"> Method </NavLink>
+                <NavLink to="/lifecycle"  className="button" activeclassname="true"> Method </NavLink> */}
             </div>
             <hr/>
         </>

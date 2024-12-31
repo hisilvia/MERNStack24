@@ -70,12 +70,37 @@ let UserHooksWithUseRef =(props) => {
         
     return (
         <>
-            <input type="text" placeholder="Please type userName" ref={userName} maxLength={20} />
-            <input type="text" placeholder="Please type password" ref={password} maxLength={20} />
-            <input type="text" placeholder="Please type street" ref={street} maxLength={20} />
-            <input type="text" placeholder="Please type mobile" ref={mobile} maxLength={20} />
+            <h1>User Login Page</h1>
+            <section className={"componentClass"}>
+                <div className="form col-md-8">
+                    <div className="col-md-12">
+                        <b>User Name</b>
+                        <input type="text" className="form-control col-md-6 username" 
+                                ref={userName} //state to update the userName
+                            placeholder="Please type userName" maxLength={40}/>
+                    </div>
+                    <div className="col-md-12">
+                            <b>Password</b>
+                            <input type="password" className="form-control col-md-6 pass" 
+                                ref={password} 
+                            placeholder="Please type password" maxLength={20}/>
+                    </div>
+                    <div className="col-md-12">
+                            <b>Street </b>
+                                <input type="text" className="form-control col-md-6 street" 
+                                ref={street} 
+                            placeholder="Please type street" maxLength={20} />
+                    </div>
+                        
+                    <div className="col-md-12">
+                        <b>Mobile </b>
+                        <input type="number" className="form-control col-md-6 mobile" 
+                            placeholder="Please type mobile" ref={mobile} maxLength={20} />
+                    </div>
+                    <button onClick={updateToStore}>Submit</button>
+                </div>
+            </section>
 
-            <button onClick={updateToStore}>Submit</button>
         </>
     )
 
