@@ -8,7 +8,7 @@ let ProductItemComponent = ({product})=>{
     //let dispatchToAddProduct = useDispatch();
 
     return(
-        <ul className="product col-md-11">
+        <ul className="product col-md-12">
             <li className="product" onClick={()=>toggleShowHide(!showHide)}>
            Name: {product.name}
                 {showHide ? 

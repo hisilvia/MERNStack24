@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveProduct } from "../../State/Product/ProductAction";
 import DisplayProduct from "./DisplayProduct";
+import { useNavigate } from 'react-router-dom';
 
 let ProductComponent = (props) => {
 
@@ -37,6 +38,12 @@ let ProductComponent = (props) => {
         evt.preventDefault();
     }
 
+    const navigate = useNavigate();
+
+    let handleAddClick =()=> {
+        navigate('/cart');
+    }
+
     return(
         <>
             <div>
@@ -69,9 +76,12 @@ let ProductComponent = (props) => {
                             placeholder="Ratings" />
                         </div>
 
-                        <input type="button" className={"form-control btn btn-primary col-md-3"} 
-                            value={"Save Product"} 
+                        <input type="submit" className={"form-control btn btn-primary col-md-3 saveUser"} 
+                            value={"Save"} 
                             onClick={saveProductClick}/>
+
+                        <input type="submit" className={"btn btn-primary col-md-3 saveUser"} 
+                                    value={"Add"} onClick={handleAddClick}/>
                     </div>
                 </form>
                 <hr/>

@@ -216,7 +216,7 @@ export default class Home extends Component {
                 <hr/>
                 <hr/>
 
-                <h1>Home Component</h1>
+                {/* <h3>Home Component</h3> */}
                 {/* <h2>
                 {this.state.age}
                 <hr/>
@@ -235,7 +235,7 @@ export default class Home extends Component {
                     onChange={this.onTextChange} name="txtUserName" className="UserName" maxLength={15}>
 
                 </input> */}
-
+{/* 
                 <div className="form col-md-12">
                      <div className="form-control">
                          <div className="col-md-3">
@@ -258,11 +258,11 @@ export default class Home extends Component {
                              onClick={this.onclick}>Update Name </button>
                          </div>
                      </div>
-                </div>
+                </div> */}
 
                 {/* creating component in un-controlled way using ref keyword */}
 
-                <form className="form-control col-md-12" action="/api/loginuser" method="post" onSubmit={this.formSubmit}>
+                {/* <form className="form-control col-md-12" action="/api/loginuser" method="post" onSubmit={this.formSubmit}>
                     <b>Address</b>
                     <input type="text" className="form-control" placeholder={"Default User Address"} 
                         ref={this.refAddress} maxLength={20} required></input>
@@ -275,7 +275,7 @@ export default class Home extends Component {
 
                 <label>{this.state.address}</label>
                 <hr/>
-                <label>{this.state.session}</label>
+                <label>{this.state.session}</label> */}
 
             </>
         )
