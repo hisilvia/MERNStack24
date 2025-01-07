@@ -13,7 +13,7 @@ import UserComponent from "./ApplicationComponents/User/UserComponent";
 import UserHooksWithUseRef from "./ApplicationComponents/User/UserHooksWithUseRef";
 import UserHooksWithUseState from "./ApplicationComponents/User/UserHooksWithUseState";
 import ProductComponent from "./ApplicationComponents/Product/ProductComponent";
-import Cart from "./ApplicationComponents/Cart/Cart";
+import CartComponent from "./ApplicationComponents/Cart/CartComponent";
 
 
 export default class Application extends React.Component {
@@ -49,7 +49,7 @@ export default class Application extends React.Component {
                         {/* <Route path="login" element={<UserContainer/>}/> */}
                         {/* <Route path="app" element={<AppCopy />} /> */}
                         <Route path="product" element={<ProductComponent />} />
-                        <Route path="cart" element={<Cart />} />
+                        <Route path="cart" element={<CartComponent />} />
                         {/* <Route path="about" element={<About />} />
                         <Route path="about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />}/>

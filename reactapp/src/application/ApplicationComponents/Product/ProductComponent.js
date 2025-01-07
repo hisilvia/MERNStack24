@@ -38,16 +38,16 @@ let ProductComponent = (props) => {
         evt.preventDefault();
     }
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    let handleAddClick =()=> {
-        navigate('/cart');
-    }
+    // let handleAddClick =()=> {
+    //     navigate('/cart');
+    // }
 
     return(
         <>
             <div>
-                <h1 className="col-md-12">Product component</h1>
+                <h1 className="col-md-12">Product Component</h1>
             </div>
             
             <div>
@@ -80,8 +80,8 @@ let ProductComponent = (props) => {
                             value={"Save"} 
                             onClick={saveProductClick}/>
 
-                        <input type="submit" className={"btn btn-primary col-md-3 saveUser"} 
-                                    value={"Add"} onClick={handleAddClick}/>
+                        {/* <input type="submit" className={"btn btn-primary col-md-3 saveUser"} 
+                                    value={"Add"} onClick={handleAddClick}/> */}
                     </div>
                 </form>
                 <hr/>

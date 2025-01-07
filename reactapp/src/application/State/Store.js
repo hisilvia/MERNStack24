@@ -6,15 +6,17 @@
 //action - object => action type (increment) ,payload (+5)
 
 import { combineReducers, applyMiddleware } from "redux";
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, createReducer } from '@reduxjs/toolkit';
 
 import UserReducer from "./User/UserReducer";
 import ProductReducer from "./Product/ProductReducer";
+import CartReducer from "./Cart/CartReducer";
 
 //we can add multiple reducers and combine them togather to have one root reducer and add it to store
 let rootReducer = combineReducers({  
     UserReducer, //userReducer : userReducer    
-    ProductReducer
+    ProductReducer,
+    CartReducer
 })
 
 //create or configure and export the store from this code
