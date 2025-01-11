@@ -1,12 +1,14 @@
 //defines the initial state to be used in user component as props and reducers to update the user data
+//Reducers specify how to change the state when the action is  received
+
 import * as actionTypes from "../ActionTypes";
 
 let initialState = {
     user : {
-        userName : "Reduxer user name",
-        password : "sjdja",
-        street : "earth",
-        mobile :1
+        userName : "",
+        password : "",
+        street : "",
+        mobile : 1
     }
 }
 
@@ -20,7 +22,6 @@ let UserReducer = (state=initialState, action)=>{
 
         default:
             return state;
-            break;
     }
 
 }

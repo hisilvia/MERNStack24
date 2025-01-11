@@ -1,7 +1,7 @@
 let mongooseObj = require("mongoose");
 schemaObj = mongooseObj.Schema; //using the schema class from mongoose
 
-//creates db with name mernstack19 or opens a connection if already present
+//creates db with name mernstack24 or opens a connection if already present
 mongooseObj.connect("mongodb+srv://smatthews:12345@cluster0.32ftxoe.mongodb.net/mernstack24"); 
 
 let productSchema = new schemaObj({

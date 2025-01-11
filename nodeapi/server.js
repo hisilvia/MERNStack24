@@ -4,6 +4,7 @@ const app = express()                  //initializing the express application
 const defaultRoutes = require("./Routes/defaultRoute")
 const userRoutes = require("./Routes/userRoute")
 const productRoute = require("./Routes/productRoute")
+const cartRoute = require("./Routes/cartRoute")
 const cors  = require('cors')
 
 
@@ -11,6 +12,7 @@ const cors  = require('cors')
 const adminApp = express()         //initialzing the express application
 const userApp = express()
 const productApp = express()
+const cartApp = express()
 
 //assume we have multiple sessions: user, product, cart
 
@@ -44,6 +46,11 @@ userApp.use("/", userRoutes);//redirecting all the calls having user in it to us
 //app.use("/nodeapi", nodeapiApp)
 app.use("/product", productApp)
 productApp.use("/", productRoute);
+
+app.use("/cart", cartApp)
+cartApp.use("/", cartRoute);
+
+
 
 app.use("/",defaultRoutes)
 

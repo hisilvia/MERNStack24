@@ -26,8 +26,8 @@ let CartItemComponent = (props)=>{
                 {
                     props.readOnly ?  "" : //bydefault false as boolean default is false
                         <Fragment>
-                            <td><button onClick={()=>dispatchItem(RemoveItemFromCart(item._id))}>Remove</button> </td>
-                            <td><button onClick={()=>dispatchItem(UpdateItemInCart(item._id, Quantity))}>Edit</button></td>
+                            <td><button onClick={()=>dispatchItem(RemoveItemFromCart(item?.id))}>Remove</button> </td>
+                            <td><button onClick={()=>dispatchItem(UpdateItemInCart(item?.id, Quantity))}>Edit</button></td>
                         </Fragment>
                 }
         </tr>

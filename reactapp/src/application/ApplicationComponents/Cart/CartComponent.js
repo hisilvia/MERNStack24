@@ -1,11 +1,43 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CartItemComponent from "./CartItemComponent";
+import { saveCartForCheckout } from "../../State/Cart/CartAction";
+import CartSummary from "./CartSummary"
 
 let CartComponent = (props)=>{
 
+    let user = useSelector((state)=>state.UserReducer.user)
     let cartList = useSelector((state)=>state.CartReducer)
+
+    let dispatchTheData = useDispatch();
+    
+    console.log("user", user)
     console.log("cartList", cartList)
+
+    let clickToSaveCart = (cartList, userid)=>{
+        if(userid) {
+            alert("cart will be saved");
+            dispatchTheData(saveCartForCheckout(cartList,userid))
+        }else {
+            alert("You're not logged-in!! Please login to help you in furture with your selected products!!")
+            //add a function using navigation hook to re-direct to login page
+        }
+    }
+
+    let calculateSummaryData = (cartItems)=>{
+        let amount = 0;
+        let count = 0;
+
+        for(let item of cartItems) {
+            amount += parseInt(item.qty) * parseInt(item.price);
+            count +=  parseInt(item.qty);
+        }
+
+        return {
+            amount,    //ES6 syntactic sugar amount: amount
+            count      //if key and values are same name, then we can put it this way without ":"
+        }
+    }
 
     return(
 
@@ -39,7 +71,18 @@ let CartComponent = (props)=>{
                     }
                 </tbody>
             </table>
-                   
+                   <CartSummary data={calculateSummaryData(cartList)} readOnly={props.readOnly} />
+                   {
+                        props.readOnly ? <></> : 
+                            <>
+                                <button onClick={() => clickToSaveCart(cartList, user._id)} >
+                                            Save Cart
+                                    </button>
+                                <button onClick={()=>{}} >
+                                    Go To Checkout
+                                </button> 
+                            </> 
+                    }
                 </> 
             :
             <h4>Please go to product and add item to cart!!!</h4>

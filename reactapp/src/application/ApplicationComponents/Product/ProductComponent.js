@@ -11,6 +11,7 @@ let ProductComponent = (props) => {
     let desc = useRef(null)
     let rating = useRef(null)
 
+
     let product = useSelector((state)=>state.ProductReducer.Product) //product reducer
 
     let dispatchProduct = useDispatch();
