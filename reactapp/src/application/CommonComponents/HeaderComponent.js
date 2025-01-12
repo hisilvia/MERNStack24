@@ -31,6 +31,7 @@ let Header = (props) => {
                 {/* <NavLink to="/app"  className="button" activeclassname="true"> AppCopy </NavLink> */}
                 <NavLink to="/product"  className="button" activeclassname="true"> Product </NavLink>
                 <NavLink to="/cart"  className="button" activeclassname="true"> Cart </NavLink>
+                {/* <NavLink to="/checkout"  className="button" activeclassname="true"> Checkout </NavLink> */}
                 {/* <NavLink to="/about"  className="button" activeclassname="true"> About </NavLink>
                 <NavLink to="/about/2500"  className="button" activeclassname="true"> About with Param</NavLink>
                 <NavLink to="/me"  className="button" activeclassname="true"> Me </NavLink>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import CartItemComponent from "./CartItemComponent";
 import { saveCartForCheckout } from "../../State/Cart/CartAction";
 import CartSummary from "./CartSummary"
+import { useNavigate } from 'react-router-dom'
 
 let CartComponent = (props)=>{
 
@@ -24,19 +25,10 @@ let CartComponent = (props)=>{
         }
     }
 
-    let calculateSummaryData = (cartItems)=>{
-        let amount = 0;
-        let count = 0;
+    const navigate = useNavigate();
 
-        for(let item of cartItems) {
-            amount += parseInt(item.qty) * parseInt(item.price);
-            count +=  parseInt(item.qty);
-        }
-
-        return {
-            amount,    //ES6 syntactic sugar amount: amount
-            count      //if key and values are same name, then we can put it this way without ":"
-        }
+    let handleGoToCheckoutClick = () =>{
+        navigate('/checkout');
     }
 
     return(
@@ -78,7 +70,7 @@ let CartComponent = (props)=>{
                                 <button onClick={() => clickToSaveCart(cartList, user._id)} >
                                             Save Cart
                                     </button>
-                                <button onClick={()=>{}} >
+                                <button onClick={handleGoToCheckoutClick} >
                                     Go To Checkout
                                 </button> 
                             </> 
@@ -92,3 +84,18 @@ let CartComponent = (props)=>{
     )
 }
 export default CartComponent;
+
+export function calculateSummaryData(cartItems) {
+    let amount = 0;
+    let count = 0;
+
+    for(let item of cartItems) {
+        amount += parseInt(item.qty) * parseInt(item.price);
+        count +=  parseInt(item.qty);
+    }
+
+    return {
+        amount,    //ES6 syntactic sugar amount: amount
+        count      //if key and values are same name, then we can put it this way without ":"
+    }
+}

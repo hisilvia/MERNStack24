@@ -40,7 +40,7 @@ let UserHooksWithUseState =(props) => {
         
         dispatcher(SaveUserToDBUsingAxios(userObj))
 
-        evt.preventDefault();
+        evt.preventDefault();  //meaning that the default action that belongs to the event will not occur
     }
 
     return (

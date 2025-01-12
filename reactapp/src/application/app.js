@@ -14,6 +14,7 @@ import UserHooksWithUseRef from "./ApplicationComponents/User/UserHooksWithUseRe
 import UserHooksWithUseState from "./ApplicationComponents/User/UserHooksWithUseState";
 import ProductComponent from "./ApplicationComponents/Product/ProductComponent";
 import CartComponent from "./ApplicationComponents/Cart/CartComponent";
+import CheckoutComponent from "./ApplicationComponents/Checkout/CheckoutComponent";
 
 
 export default class Application extends React.Component {
@@ -50,6 +51,7 @@ export default class Application extends React.Component {
                         {/* <Route path="app" element={<AppCopy />} /> */}
                         <Route path="product" element={<ProductComponent />} />
                         <Route path="cart" element={<CartComponent />} />
+                        <Route path="checkout" element={<CheckoutComponent />} />
                         {/* <Route path="about" element={<About />} />
                         <Route path="about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />}/>
