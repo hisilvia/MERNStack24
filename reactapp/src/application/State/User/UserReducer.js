@@ -8,7 +8,7 @@ let initialState = {
         userName : "",
         password : "",
         street : "",
-        mobile : 1
+        mobile : 0
     }
 }
 
@@ -20,6 +20,8 @@ let UserReducer = (state=initialState, action)=>{
         case actionTypes.ADD_USER_TO_STORE:
             return {...state, user : action.payload}    
 
+        case actionTypes.SIGN_OUT_USER:
+            return initialState;
         default:
             return state;
     }

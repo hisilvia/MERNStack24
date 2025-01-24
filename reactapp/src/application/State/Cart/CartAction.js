@@ -75,9 +75,6 @@ export const fetchUserCart = (userid)=>{
                     dispatch(action);    
                 } 
             }
-
-               
-
         })
         .catch((err)=>{
             //dispatch(loading(false));

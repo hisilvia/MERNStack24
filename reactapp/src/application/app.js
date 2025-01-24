@@ -15,6 +15,7 @@ import UserHooksWithUseState from "./ApplicationComponents/User/UserHooksWithUse
 import ProductComponent from "./ApplicationComponents/Product/ProductComponent";
 import CartComponent from "./ApplicationComponents/Cart/CartComponent";
 import CheckoutComponent from "./ApplicationComponents/Checkout/CheckoutComponent";
+import OrderComponent from "./ApplicationComponents/Order/OrderComponent";
 
 
 export default class Application extends React.Component {
@@ -52,11 +53,12 @@ export default class Application extends React.Component {
                         <Route path="product" element={<ProductComponent />} />
                         <Route path="cart" element={<CartComponent />} />
                         <Route path="checkout" element={<CheckoutComponent />} />
-                        {/* <Route path="about" element={<About />} />
+                        <Route path="order" element={<OrderComponent />} />
+                        <Route path="about" element={<About />} />
                         <Route path="about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />}/>
                         <Route path="me" element={<Me />} />
-                        <Route path="lifecycle" element={<PracticeLifeCycle />} /> */}
+                        {/* <Route path="lifecycle" element={<PracticeLifeCycle />} />  */}
                     </Routes>
                 <Footer/>
             </Router>

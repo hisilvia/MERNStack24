@@ -12,6 +12,12 @@ export const AddUserToStore = (user)=>{
     }
 }
 
+export const SignOutUser = () =>{
+    return {
+        type : actionTypes.SIGN_OUT_USER,
+    }
+}
+
 
 //need to make a ajax - asynchronous javascript like xml - be used to make parallel server/api calls
 //React.fetch() - we can use to make API or can add axios library to achieve the same

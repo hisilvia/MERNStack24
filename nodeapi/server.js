@@ -5,6 +5,7 @@ const defaultRoutes = require("./Routes/defaultRoute")
 const userRoutes = require("./Routes/userRoute")
 const productRoute = require("./Routes/productRoute")
 const cartRoute = require("./Routes/cartRoute")
+const orderRoute = require("./Routes/orderRoute")
 const cors  = require('cors')
 
 
@@ -13,6 +14,7 @@ const adminApp = express()         //initialzing the express application
 const userApp = express()
 const productApp = express()
 const cartApp = express()
+const orderApp = express()
 
 //assume we have multiple sessions: user, product, cart
 
@@ -50,7 +52,8 @@ productApp.use("/", productRoute);
 app.use("/cart", cartApp)
 cartApp.use("/", cartRoute);
 
-
+app.use("/order", orderApp)
+orderApp.use("/", orderRoute);
 
 app.use("/",defaultRoutes)
 

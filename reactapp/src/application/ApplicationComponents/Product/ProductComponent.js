@@ -13,6 +13,8 @@ let ProductComponent = (props) => {
 
 
     let product = useSelector((state)=>state.ProductReducer.Product) //product reducer
+    let user = useSelector((state)=>state.UserReducer.user)
+    console.log("userName = ", user.userName)
 
     let dispatchProduct = useDispatch();
 
@@ -33,9 +35,14 @@ let ProductComponent = (props) => {
             rating : rating.current.value
         }
 
-        alert("We are going to save this product!!! "+ JSON.stringify(productToSave))
+        if (user.userName == "Admin") {
+            alert("We are going to save this product!!! "+ JSON.stringify(productToSave))
 
-        dispatchProduct(saveProduct(productToSave))
+            dispatchProduct(saveProduct(productToSave))
+        }else {
+            alert("You are not able to insert a new product.")
+        }
+        
         evt.preventDefault();
     }
 
@@ -84,10 +91,12 @@ let ProductComponent = (props) => {
                         {/* <input type="submit" className={"btn btn-primary col-md-3 saveUser"} 
                                     value={"Add"} onClick={handleAddClick}/> */}
                     </div>
-                </form>
+                </form>       
                 <hr/>
                 <DisplayProduct />
+                
             </div>
+              
         </>
     )
 

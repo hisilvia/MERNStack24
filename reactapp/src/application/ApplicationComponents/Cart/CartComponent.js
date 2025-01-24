@@ -18,7 +18,8 @@ let CartComponent = (props)=>{
     let clickToSaveCart = (cartList, userid)=>{
         if(userid) {
             alert("cart will be saved");
-            dispatchTheData(saveCartForCheckout(cartList,userid))
+            dispatchTheData(saveCartForCheckout(cartList,userid));
+           // navigate('/order');
         }else {
             alert("You're not logged-in!! Please login to help you in furture with your selected products!!")
             //add a function using navigation hook to re-direct to login page
@@ -35,8 +36,8 @@ let CartComponent = (props)=>{
 
         <div className="col-md-12">
             <h2>Cart Component</h2>
-            { cartList && cartList.length > 0 ? 
-              <>
+            { cartList && cartList.length > 0 && cartList[0] != null? 
+              <div>
               <table>
                   <thead>
                       <tr>
@@ -47,7 +48,7 @@ let CartComponent = (props)=>{
                           <th>Quantity</th>
                           <th>Total</th>
                           {
-                              props.readOnly ?  "" : //bydefault false as boolean default is false
+                              props.readOnly ?  "" : //by default false as boolean default is false
                                   <>
                                       <th>Remove</th>
                                       <th>Edit</th>
@@ -58,7 +59,7 @@ let CartComponent = (props)=>{
                   <tbody>
                       {
                         cartList.map((item)=>{
-                                return <CartItemComponent item={item} key={item._id} />
+                                return <CartItemComponent item={item} key={item?._id} />
                         })
                     }
                 </tbody>
@@ -75,7 +76,7 @@ let CartComponent = (props)=>{
                                 </button> 
                             </> 
                     }
-                </> 
+                </div> 
             :
             <h4>Please go to product and add item to cart!!!</h4>
             }

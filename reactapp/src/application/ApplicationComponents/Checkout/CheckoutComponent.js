@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import CartSummary from "../Cart/CartSummary";
 import { calculateSummaryData } from "../Cart/CartComponent";
 import CartItemComponent from "../Cart/CartItemComponent";
+import CouponComponent from "../Coupon/CouponComponent";
 
 let CheckoutComponent = (props) =>{
 
@@ -54,6 +55,7 @@ let CheckoutComponent = (props) =>{
                     <hr/> 
 
                     <CartSummary  data={calculateSummaryData(cartList)} readOnly={props.readOnly}/>
+                    <CouponComponent />
                     <hr/>
 
                     <button onClick={() => setShowEvents(false)}>MakePayment</button>

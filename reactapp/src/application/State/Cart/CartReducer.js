@@ -9,12 +9,17 @@ let CartReducer = (state = Initial_State, action)=>{
     switch (action.type) {
         
         case actionTypes.ADD_ITEM :
-            let newState = state.filter((item)=>item?.id != action.payload.selectedProduct?.id)
-            return [...newState , action.payload.selectedProduct]
- 
+            let newState = state.filter(item => {
+                if(item && item._id) {
+                    return item._id != action.payload.selectedProduct._id;
+                }
+                
+            });
+            return [...newState , action.payload.selectedProduct];   
+            
         case actionTypes.UPDATE_ITEM :
             return state.map((item)=>{
-                if (item?.id == action.payload.productId) { //update the qty of item we want to update with selected id
+                if (item._id != '' && item._id == action.payload.productId) { //update the qty of item we want to update with selected id
                     return {...item, qty:action.payload.qty} //...item means {name, desc, rating, qty, price}
                 }
                 return item;//for all other items in cart do not update anything
@@ -24,7 +29,7 @@ let CartReducer = (state = Initial_State, action)=>{
             return []
         
         case actionTypes.REMOVE_ITEM :
-            return state.filter((item)=>item?.id != action.payload.productId)
+            return state.filter((item)=>item._id != action.payload.productId)
 
         default:
             return state

@@ -9,8 +9,10 @@ const CartSummary = (props)=>{
     return(
         <div>
             {props.readOnly ? <h5> Cart Summary </h5> : <h2> Cart Summary </h2>}
-            <p> Amount: {amount} </p>
             <p> Products Count: {count} </p>
+            <p> Amount: {amount} </p>
+            
+            
         </div>
     )
 }

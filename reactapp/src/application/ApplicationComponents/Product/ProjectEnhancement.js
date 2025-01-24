@@ -1,3 +1,27 @@
+// Jan-15-2025 - Recentorder Page 
+// Upon MakePayment Click
+// Save the cart to RecentOrders collection (should have userid, order, dateTime)
+// Make API to Save and Fetch from RecentOrders
+// Make a component RecentOrders to Show all previous Orders of current user
+// Add a button to Cancel (like) we have remove in CartComponent and then save again, 
+// order can be cancelled within 2 days after that it should be marked delivered
+
+
+
+// Jan-13-2025 - Coupon Page
+// Coupon Page 
+// Create a component with Name - CouponComponent (Functional Component and Use Hooks)
+// On the page add a Button - GenerateCoupon
+// Upon Click Generate a random coupon of - 6 digits (basically a numeric random value)
+// Dispatch this generated coupon using useDispatch
+// Create a Coupon Reducer to have Coupon Value, Use Reducer to update the coupon value (useSelector coupon)
+// Create action to pass coupon to reducer, with type and payload
+
+// Part 2 : 
+// Hide all the links except : Home, User and About for a user not logged-in
+// In Product Component show Save to product section only to a user with name "admin" so that not all users 
+// can insert the products to database 
+
 // Jan-08-2025 - Checkout Component
 
 // Checkout Component
