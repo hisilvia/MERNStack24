@@ -65,7 +65,7 @@ export const fetchUserCart = (userid)=>{
             console.log("get products response ", cartList);
             //dispatch(loading(false));
             //need to do this in loop
-            dispatch(AddItemToCart(cartList))
+            //dispatch(AddItemToCart(cartList))
 
             if (cartList != null) {
 

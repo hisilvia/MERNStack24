@@ -59,7 +59,7 @@ let CartComponent = (props)=>{
                   <tbody>
                       {
                         cartList.map((item)=>{
-                                return <CartItemComponent item={item} key={item?._id} />
+                                return <CartItemComponent item={item} key={item._id} />
                         })
                     }
                 </tbody>

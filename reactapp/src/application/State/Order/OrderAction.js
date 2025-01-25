@@ -63,13 +63,15 @@ export const fetchOrder = (userid)=>{
         .then((allOrderData)=>{
             let orderList = allOrderData.data;
             console.log("get carts response ", orderList);
-            dispatch(FetchOrder(order))
+            // dispatch(FetchOrder(order))
 
-            // if (orderList != null) {
-            //     for (const item of orderList.order){
-
-            //     }
-            // }
+            if (orderList != null) {
+                for (const item of orderList){
+                    console.log("Order item in for of ", item);
+                    let action = dispatch(AddOrder(item));
+                    dispatch(action);
+                }
+            }
         })
         .catch((err) =>{
             console.log("Error while fetching order", err)

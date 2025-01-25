@@ -6,13 +6,14 @@ mongooseObj.connect("mongodb+srv://smatthews:12345@cluster0.32ftxoe.mongodb.net/
 
 let orderSchema = new schemaObj({
     userid: {type:String, required:true},
-    orderid: {type:String, required:true},
+    order: Object,
+    // orderid: {type:String, required:true},
     date: {type:Date, default: Date.now},
-    productName: {type:String, required:true},
-    quantity: {type:Number, default:1},
-    listPrice: {type:Number, required:true},
-    discount:{type: Number, required:true, default: 0},
-    netPrice: {type: Number, required:true},
+    // productName: {type:String, required:true},
+    // quantity: {type:Number, default:1},
+    // listPrice: {type:Number, required:true},
+    // discount:{type: Number, required:true, default: 0},
+    // netPrice: {type: Number, required:true},
 },
 {
     versionKey: false //false - set to false then it wont create in mongodb, don't set it to true, if you want _v just dont add this

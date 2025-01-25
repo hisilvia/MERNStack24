@@ -15,6 +15,9 @@ let CartReducer = (state = Initial_State, action)=>{
                 }
                 
             });
+            // let newState = state.filter((item)=>{
+            //     item._id != action.payload.selectedProduct._id
+            // })
             return [...newState , action.payload.selectedProduct];   
             
         case actionTypes.UPDATE_ITEM :
