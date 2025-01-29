@@ -2,6 +2,7 @@
 import * as actionTypes from "../ActionTypes";
 import axios from "axios";
 import { fetchUserCart } from "../Cart/CartAction";
+import { fetchUserOrder } from "../Order/OrderAction";
 
 
 //action accepts payload value/object to be used in user reducer switch
@@ -53,6 +54,8 @@ export const SaveUserToDBUsingAxios = (userObj)=>{
             console.log(loggedUser)
             dispatch(AddUserToStore(loggedUser))
             dispatch(fetchUserCart(loggedUser._id))
+            dispatch(fetchUserOrder(loggedUser._id))
+            
         })
         .catch((error)=>console.log(error))
     }

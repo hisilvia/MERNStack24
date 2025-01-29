@@ -1,9 +1,9 @@
 import * as actionTypes from "../ActionTypes";
 import axios from "axios";
-import { AddItemToCart } from "../Cart/CartAction";
+import {fetchProducts} from "../Product/ProductAction"
 
 //Actions
-const AddOrder = (order)=>{
+export const addItemToOrder = (order)=>{
 
     return {
         type: actionTypes.ADD_ORDER,
@@ -11,7 +11,7 @@ const AddOrder = (order)=>{
     }
 }
 
-const UpdateOrder = (order)=>{
+const updateItemInOrder = (order)=>{
 
     return {
         type: actionTypes.UPDATE_ORDER,
@@ -19,7 +19,7 @@ const UpdateOrder = (order)=>{
     }
 }
 
-const FetchOrder = (order)=>{
+const fetchItemFromOrder = (order)=>{
 
     return {
         type: actionTypes.FETCH_ORDER,
@@ -27,7 +27,7 @@ const FetchOrder = (order)=>{
     }
 }
 
-const CancelOrder = ()=>{
+const cancelItemFromOrder = ()=>{
 
     return {
         type: actionTypes.CANCEL_ORDER
@@ -35,7 +35,7 @@ const CancelOrder = ()=>{
 }
 
 //Push orders to database
-export const saveOrder = (order, userid) =>{
+export const saveUserOrder = (order, userid) =>{
     console.log("Order list: ", order);
 
     return function(dispatch) {
@@ -46,7 +46,7 @@ export const saveOrder = (order, userid) =>{
         .then((allData)=>{
             let orderResp = allData.data;
             console.log("order save response: ", orderResp);
-            dispatch(AddOrder(order));  //fetch the item in the cart
+            dispatch(addItemToOrder(order));  //fetch the item in the cart
         })
         .catch((err)=>{
             console.log("Error While Saving Order", err)
@@ -54,8 +54,8 @@ export const saveOrder = (order, userid) =>{
     }
 };
 
-export const fetchOrder = (userid)=>{
-    console.log("fetchOrder ");
+export const fetchUserOrder = (userid)=>{
+    console.log("fetchUserOrder ");
     return function (dispatch) {
         axios.post("http://localhost:9000/order/api/getUserOrder", 
               {userid}
@@ -68,7 +68,7 @@ export const fetchOrder = (userid)=>{
             if (orderList != null) {
                 for (const item of orderList){
                     console.log("Order item in for of ", item);
-                    let action = dispatch(AddOrder(item));
+                    let action = dispatch(fetchItemFromOrder(item));
                     dispatch(action);
                 }
             }

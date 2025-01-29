@@ -5,6 +5,7 @@ const Initial_State = []
 //write callback/ reducer to generate new state upon action change
 let CartReducer = (state = Initial_State, action)=>{
     //switch case logice to read action type and return new state / updated state
+    console.log("Cart Reducer ", action.payload);
 
     switch (action.type) {
         
@@ -15,9 +16,6 @@ let CartReducer = (state = Initial_State, action)=>{
                 }
                 
             });
-            // let newState = state.filter((item)=>{
-            //     item._id != action.payload.selectedProduct._id
-            // })
             return [...newState , action.payload.selectedProduct];   
             
         case actionTypes.UPDATE_ITEM :

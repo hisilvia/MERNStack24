@@ -14,6 +14,8 @@ import StudentHooksWithUseRef from "./component/student/StudentHooksWithUseRef";
 import StudentHooksWithUseState from "./component/student/StudentHooksWithUseState";
 import ProductComponent from "./component/product/ProductComponent";
 import CartComponent from "./component/product/CartComponent";
+import PageWithTime from "./component/assessment/PageWithTime";
+import ATMDispencer from "./component/assessment/ATMDispencer";
 
 export default class Application extends React.Component {
 
@@ -48,6 +50,8 @@ export default class Application extends React.Component {
                             <Route path="cart" element={<CartComponent />}/>
                             <Route path="story" element={<SuccessStory />}/>
                             <Route path="lifecyle" element={<Lifecyle />}/>
+                            <Route path="localtime" element={<PageWithTime/>}/>
+                            <Route path="withdraw" element={<ATMDispencer/>}/>
                         </Routes>
                     <Footer/>
                 </Router>

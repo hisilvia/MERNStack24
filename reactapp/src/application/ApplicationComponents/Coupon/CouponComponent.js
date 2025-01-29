@@ -5,6 +5,7 @@ import { AddCoupon } from "../../State/Coupon/CouponAction";
 const CouponComponent = (props)=>{
 
     let coupon = useSelector((state)=>state.CouponReducer)
+    console.log("coupon: ", coupon)
 
     let dispatchCoupon = useDispatch();
 

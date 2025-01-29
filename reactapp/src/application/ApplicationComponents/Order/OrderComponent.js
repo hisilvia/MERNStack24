@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import CartItemComponent from '../Cart/CartItemComponent'
+import OrderItemComponent from '../Order/OrderItemComponent'
+import { saveUserOrder } from '../../State/Order/OrderAction'
 
 
 let OrderComponent = (props)=>{
@@ -13,12 +14,19 @@ let OrderComponent = (props)=>{
 
     let dispatch = useDispatch();
 
-    let clickToSaveOrder
+    let clickToSaveOrder = (orderList, userid) => {
+        if (userid) {
+            alter("order will be saved");
+            dispatch(saveUserOrder(orderList, userid));
+        }
+    }
 
 
 
     return (
         <>
+            
+            { orderList && orderList.length > 0 ?
             <table>
                 <thead>
                     <tr>
@@ -31,7 +39,7 @@ let OrderComponent = (props)=>{
                         {
                               props.readOnly ?  "" : //by default false as boolean default is false
                                   <>
-                                      <th>Cancel</th>                            
+                                      <th>Action</th>                            
                                   </>
                         }
 
@@ -39,12 +47,33 @@ let OrderComponent = (props)=>{
 
                 </thead>
                 <tbody>
-                    
+                    {
+                        orderList.map((item)=>{
+                            //return item.qty;
+                             return <OrderItemComponent item={item} key={item._id} />
+                        })
+                    }
 
                 </tbody>
             </table>
+            :
+            <h4>Please go to checkout!</h4>
+                }
+            {/* {
+                orderList && orderList.length > 0 ?
+                    orderList.map((item)=>{
+                        return item.name
+                    })
+                :
+                 <h4>Please go to checkout!</h4>
+            } */}
+
+
+
+
             <p>Order Review:</p>
-             
+             {user._id}
+             {orderList._id}
         </>
     )
 }

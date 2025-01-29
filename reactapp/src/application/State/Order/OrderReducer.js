@@ -8,7 +8,8 @@ let OrderReducer = (state=initialState, action)=>{
     switch(action.type){
 
         case(actionTypes.ADD_ORDER):
-            return [...state, action.payload]
+            let newState = state
+            return [...newState, action.payload.order]
 
         case(actionTypes.UPDATE_ORDER):
             return action.payload

@@ -1,19 +1,29 @@
 import React, {useState} from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartSummary from "../Cart/CartSummary";
 import { calculateSummaryData } from "../Cart/CartComponent";
 import CartItemComponent from "../Cart/CartItemComponent";
 import CouponComponent from "../Coupon/CouponComponent";
+import {addItemToOrder} from "../../State/Order/OrderAction"
 
 let CheckoutComponent = (props) =>{
 
     let user = useSelector((state)=>state.UserReducer.user)
     let cartList = useSelector((state)=>state.CartReducer)
+    let dispatch = useDispatch()
 
     console.log("user", user);
-    console.log("carList", cartList)
+    console.log("carList1", cartList)
 
     const [showEvents, setShowEvents] = useState(true);
+    
+    
+    let AddItemInCheckoutToOrder = ()=>{
+        //let val = evt.target.value
+        setShowEvents(false);
+       // alter("successfully1");
+        //dispatch(addItemToOrder(cartList))
+    }
 
     return (
         
@@ -58,7 +68,7 @@ let CheckoutComponent = (props) =>{
                     <CouponComponent />
                     <hr/>
 
-                    <button onClick={() => setShowEvents(false)}>MakePayment</button>
+                    <button onClick={ AddItemInCheckoutToOrder}>MakePayment</button>
                 </div>
             }
             {!showEvents && 
