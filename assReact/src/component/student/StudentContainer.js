@@ -18,7 +18,8 @@ let mapDispatchToProps = (dispatch)=>{
     return {
         addStudent : (student=>{
             dispatch(AddStudentToStore(student))
-        }
+        })
+       
     }
 }
 

@@ -37,6 +37,7 @@ export default class UserSignIn extends Component {
                     <input type="text" ref={this.refRole} placeholder="Staff"/>
                     </label>
                     <br/>
+                    
                     <input type="submit" value="Submit" />
                 </form>
 
