@@ -2,8 +2,9 @@ import * as actionTypes from "../ActionTypes";
 
 let initialState = {
     student : {
-        studentName : "default",
+        studentName : "",
         major : "CS",
+        hobbies: []
    
     },
     // students: [],
@@ -21,6 +22,24 @@ let StudentReducer = (state=initialState, action)=>{
         // case "SET_LOADING" :
         //     return { ...state, Loading : action.payload.loading }
 
+        case actionTypes.ADD_HOBBY_TO_STUDENT:
+            return {
+                ...state, 
+                student: {
+                    ...state.student,
+                    hobbies: [...state.student.hobbies, action.payload],
+                    }
+                }
+
+        case actionTypes.FETCH_STUDENT_HOBBIES:
+            return {
+                ...state,
+                student: {
+                    ...state.student,
+                    hobbies: action.payload,
+                }
+            }
+            
         default:
             return state;           
     }

@@ -10,7 +10,7 @@ let OrderComponent = (props)=>{
     let orderList = useSelector((state)=>state.OrderReducer)
 
     console.log("user in OrderComponent", user)
-    console.log("orderList", orderList)
+    console.log("orderList in OrderComponent", orderList)
 
     let dispatch = useDispatch();
 

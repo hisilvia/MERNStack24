@@ -16,6 +16,7 @@ import ProductComponent from "./component/product/ProductComponent";
 import CartComponent from "./component/product/CartComponent";
 import PageWithTime from "./component/assessment/PageWithTime";
 import ATMDispencer from "./component/assessment/ATMDispencer";
+import StudentAddHobby from "./component/student/StudentAddHobby";
 
 export default class Application extends React.Component {
 
@@ -45,6 +46,7 @@ export default class Application extends React.Component {
                             <Route path="login1" element={<StudentComponent />}/>
                             <Route path="login2" element={<StudentHooksWithUseRef />}/>
                             <Route path="login3" element={<StudentHooksWithUseState />}/>
+                            {/* <Route path="addHobby" element={<StudentAddHobby />}/> */}
                             <Route path="sign" element={<UserSignIn />}/>
                             <Route path="product" element={<ProductComponent />}/>
                             <Route path="cart" element={<CartComponent />}/>

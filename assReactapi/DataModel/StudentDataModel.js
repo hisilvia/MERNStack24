@@ -8,7 +8,7 @@ mongooseObj.connect("mongodb+srv://smatthews:12345@cluster0.32ftxoe.mongodb.net/
 let studentSchema = new schemaObj({
     studentName : {type: String, required : true},
     major: {type:String, required : true},
-    
+    hobbies: {type:[String], default:[]}
     
 }
 //,

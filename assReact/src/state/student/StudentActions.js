@@ -50,3 +50,57 @@ export const SaveStudentToDBUsingAxios = (studentObj)=>{
     }
 }
     
+export const addHobby = (hobby) => {
+    return {
+        type: actionTypes.ADD_HOBBY_TO_STUDENT,
+        payload: hobby,
+    }
+    
+}
+
+export const fetchHobbies = (hobbies) => {
+    return {
+        type: actionTypes.FETCH_STUDENT_HOBBIES,
+        payload: hobbies,
+    }
+}
+
+//push to DB
+export const addHobbyToDB  = (studentName, hobbies) =>{
+    console.log("AddHobbyToDB called");
+
+    return function (dispatch) {
+        axios.post("http://localhost:8000/student/api/addHobby",
+             {studentName, hobbies},
+             {
+                headers: {'Content-Type': 'application/json'}
+             }
+        ).then((data)=>{
+            let loadHobby = data.data
+            console.log("loadHobby: ", loadHobby);
+            dispatch(addHobby(loadHobby))
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+        ;
+
+    }
+}
+
+export const fetchHobbiesFromDB = (studentName) => {
+    console.log("fetchHobbiesFromDB called");
+
+    return function (dispatch){
+        axios.get(`http://localhost:8000/student/api/hobbies?studentName=${studentName}`
+             
+        ).then((collection)=>{
+            let getHobby = collection.data;
+            console.log("collect hobby: ", getHobby);
+            dispatch(fetchHobbies(getHobby))
+        })
+        .catch((error)=>console.log(error))
+        ;
+    }
+
+}

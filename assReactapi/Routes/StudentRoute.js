@@ -44,4 +44,38 @@ studentRouter.get("/api/students",(req, res)=>{
     })
 });
 
+studentRouter.post("/api/addHobby", async(req, res)=>{
+    
+    let hobbyObj = req.body;
+    console.log("hobbyObj in Route: ", hobbyObj)
+
+    studentDataModel.findOne({studentName: req.body.studentName}).then((existingStudent)=>{
+
+        if(existingStudent){
+            existingStudent.hobbies = req.body.hobbies;
+            res.send(hobbyObj.hobbies)
+        }else{
+            return res.status(404).json({ message: "Student doesnt exist" });
+        }
+
+    }).catch((error)=>{
+        console.log("Error while saving hobby", error)
+        res.send("Error while saving hobby.")
+    })
+   
+});
+
+studentRouter.get("/api/hobbies", (req, res)=>{
+    const studentName = req.query.studentName;
+
+    try {
+        const student = studentDataModel.findOne({ studentName});
+        if (!student) {
+            return res.status(404).json({ message: "Student not found" });
+        }
+        res.status(200).json(student.hobbies);
+    }catch (error) {
+        res.status(500).json({ message: "Error fetching hobbies", error });
+    }
+})
 module.exports = studentRouter;
