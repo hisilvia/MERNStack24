@@ -5,6 +5,7 @@ import { RemoveItemFromCart, UpdateItemInCart } from "../../State/Cart/CartActio
 let CartItemComponent = (props)=>{
 
     let item = props.item;
+    console.log("props.item: ", item);
     let [Quantity, setQuantity] = useState(item.qty)
     let dispatchItem = useDispatch();
 

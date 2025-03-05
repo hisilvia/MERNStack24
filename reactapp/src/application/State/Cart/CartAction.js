@@ -2,7 +2,6 @@ import * as actionTypes from "../ActionTypes";
 import axios from "axios";
 import {fetchProducts} from "../Product/ProductAction"
 
-
 export const saveCartForCheckout = (cart, userid)=>{
     console.log("Cart List ", cart);
     
@@ -40,18 +39,19 @@ export const UpdateItemInCart = (productId, qty)=>{
         }
     }
 }
+
 export const RemoveItemFromCart = (productId)=>{
     return {
         type : actionTypes.REMOVE_ITEM,
         payload : {productId}
     }
 }
+
 export const EmptyTheCart = ()=>{
     return {
         type : actionTypes.EMPTY_CART
     }
 }
-
 
 export const fetchUserCart = (userid)=>{
     console.log("Cart ");
@@ -82,3 +82,22 @@ export const fetchUserCart = (userid)=>{
         })
     }
 };
+
+//reset cart from mongo db after clicking checkout
+export const resetCartAfterCheckout = (cart, userid) =>{
+    return function (dispatch) {
+         //dispatch(loading(true));
+        axios.post("http://localhost:9000/cart/api/saveUserCart",
+            {cart, userid}
+        )
+        .then((allData)=>{
+           
+            console.log("remove cart items ", allData.data);
+            dispatch(EmptyTheCart());
+           
+        })
+        .catch((err)=>{
+            console.log("Error While reset cart", err)
+        })
+    }
+}

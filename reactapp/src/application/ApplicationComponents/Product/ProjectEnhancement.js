@@ -1,3 +1,41 @@
+// 06-Feb-2025 - Download Order
+// Create PDF of order information
+// Save it on local or S3 bucket
+// Create a link for that order to redirect and download from aws
+// Send a mail once payment button is clicked
+
+
+// 31-Jan-2025 - Notifcations
+// Show notification on top of header (Right Corner)
+// Design Should show a circular or any small icon, to show number of notifications
+// Upon click it should expand in rectangular box and show all the notification messages 
+// All notification messages should be clickable
+// Upon click of any of them it should reduce the count in notification icon
+// It should have two types of notifications - static and dynamic
+// Static Notifications To Assist User
+// 1. To Add Products from Product Screen
+// 2. To Add Items from Cart Page
+// 3. To review cart from Checkout Page
+// 4. To Make Payment from Payment Page
+// 5. To Assist Them for cancel/reorder
+// Dynamic Notifications To Assist User
+// 1. To Check the number of items added in the Cart
+// 2. If user cancels an order it should it should add one notification that an order has been cancelled and add it to notification row
+
+// 22-Jan-2025 - Review Page
+// This should get its reviews from recent orders page
+// User should be allowed to give ratings and his comments to each products as well as the order
+// Upon successful submission each product should have a link to show its review -
+// When user expands product detail we should also see the button to which will take us to review or review list
+// on recent order page we can show a popup to submit rating or a new page its up to you //can use -> react bootstrap
+// user should only be able to give rating once cancel button is gone
+
+// 21-Jan-2025 - Reorder Page 
+// Reorder
+// User to reorder from recent orders or from cancelled orders
+// A Simple process just add the order to your cart and replace or merge whatever is present in cart
+
+
 // Jan-15-2025 - Recentorder Page 
 // Upon MakePayment Click
 // Save the cart to RecentOrders collection (should have userid, order, dateTime)

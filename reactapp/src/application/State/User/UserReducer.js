@@ -22,6 +22,7 @@ let UserReducer = (state=initialState, action)=>{
 
         case actionTypes.SIGN_OUT_USER:
             return initialState;
+        
         default:
             return state;
     }

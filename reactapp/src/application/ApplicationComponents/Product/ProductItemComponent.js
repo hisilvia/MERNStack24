@@ -10,8 +10,9 @@ let ProductItemComponent = ({product})=>{
     let dispatchToAddProduct = useDispatch();
 
     let addItemToCart = (product)=>{
+        console.log("product: ", product)
         dispatchToAddProduct(AddItemToCart(product))
-       // dispatchToAddProduct(addItemToOrder(product))
+        //dispatchToAddProduct(addItemToOrder(product))
     }
 
     return(

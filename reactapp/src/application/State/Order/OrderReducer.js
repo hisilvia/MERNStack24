@@ -9,13 +9,14 @@ let OrderReducer = (state=initialState, action)=>{
 
         case(actionTypes.ADD_ORDER):
             let newState = state
-            return [...newState, action.payload.order]
+            return [newState, action.payload]
+            //return [...newState, action.payload]
 
         case(actionTypes.UPDATE_ORDER):
             return action.payload
 
         case(actionTypes.FETCH_ORDER):
-            return action.payload    
+            return action.payload  
 
         case(actionTypes.CANCEL_ORDER):
             return initialState

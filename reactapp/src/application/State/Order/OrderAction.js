@@ -1,10 +1,11 @@
 import * as actionTypes from "../ActionTypes";
 import axios from "axios";
-import {fetchProducts} from "../Product/ProductAction"
+import { useDispatch, useSelector } from 'react-redux'
+import { EmptyTheCart, resetCartAfterCheckout } from "../Cart/CartAction";
+import { EmptyCoupon } from "../Coupon/CouponAction"
 
 //Actions
 export const addItemToOrder = (order)=>{
-
     return {
         type: actionTypes.ADD_ORDER,
         payload: order,
@@ -12,41 +13,61 @@ export const addItemToOrder = (order)=>{
 }
 
 const updateItemInOrder = (order)=>{
-
     return {
         type: actionTypes.UPDATE_ORDER,
         payload: order
     }
 }
 
-const fetchItemFromOrder = (order)=>{
-
+const fetchItemFromOrder = (orders)=>{
     return {
         type: actionTypes.FETCH_ORDER,
-        payload: order
+        payload: orders
     }
 }
 
 const cancelItemFromOrder = ()=>{
-
     return {
         type: actionTypes.CANCEL_ORDER
     }
 }
 
-//Push orders to database
-export const saveUserOrder = (order, userid) =>{
-    console.log("Order list: ", order);
+//Add orders to database
+export const saveUserOrder = (userid, order, coupon) =>{
+    console.log("saveUserOrder is called ");
 
-    return function(dispatch) {
+    return function(dispatch) {    //getState() is available here
+
+        
+        //get cartList from state
+        //const cart = getState().CartReducer
+        //const cart = useSelector((state)=>state.CartReducer)
+
+        const discount = coupon 
+            ? {
+                code: coupon,
+                percentage: 10,
+              }
+            : undefined
+
 
         axios.post("http://localhost:9000/order/api/saveUserOrder",
-            {order, userid}
+            {userid, order, discount}
         )
         .then((allData)=>{
             let orderResp = allData.data;
             console.log("order save response: ", orderResp);
-            dispatch(addItemToOrder(order));  //fetch the item in the cart
+
+            //if(orderResp.order != null) {
+                
+            dispatch(addItemToOrder(orderResp));  //fetch the item in the cart
+            // dispatch(EmptyTheCart());   
+            // dispatch(resetCartAfterCheckout({},userid));
+            // dispatch(EmptyCoupon());
+           
+           // }
+           
+
         })
         .catch((err)=>{
             console.log("Error While Saving Order", err)
@@ -63,15 +84,15 @@ export const fetchUserOrder = (userid)=>{
         .then((allOrderData)=>{
             let orderList = allOrderData.data;
             console.log("get carts response ", orderList);
-            // dispatch(FetchOrder(order))
+            dispatch(fetchItemFromOrder(orderList))
 
-            if (orderList != null) {
-                for (const item of orderList){
-                    console.log("Order item in for of ", item);
-                    let action = dispatch(fetchItemFromOrder(item));
-                    dispatch(action);
-                }
-            }
+            // if (orderList != null) {
+            //     for (const item of orderList){
+            //         console.log("Order item in for of ", item);
+            //         let action = dispatch(fetchItemFromOrder(item));
+            //         dispatch(action);
+            //     }
+            // }
         })
         .catch((err) =>{
             console.log("Error while fetching order", err)

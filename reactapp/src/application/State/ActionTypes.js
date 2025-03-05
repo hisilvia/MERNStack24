@@ -3,8 +3,11 @@
 
 //User
 export const ADD_USER_TO_STORE = "STORE.ADDUSER";
-export const ADD_PRODUCTS_TO_STORE = "STORE.ADDPRODUCT";
 export const SIGN_OUT_USER = "STORE.SIGNOUTUSER";
+
+//Product
+export const ADD_PRODUCTS_TO_STORE = "STORE.ADDPRODUCT";
+export const FETCH_PRODUCTS = "STORE.FETCHPRODUCTS";
 
 //Cart
 export const ADD_ITEM = "CART.ADD_ITEM";

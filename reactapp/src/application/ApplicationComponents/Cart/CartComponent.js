@@ -4,11 +4,14 @@ import CartItemComponent from "./CartItemComponent";
 import { saveCartForCheckout } from "../../State/Cart/CartAction";
 import CartSummary from "./CartSummary"
 import { useNavigate } from 'react-router-dom'
+import { saveUserOrder } from "../../State/Order/OrderAction";
 
 let CartComponent = (props)=>{
 
+    console.log("props: ", props);
     let user = useSelector((state)=>state.UserReducer.user)
     let cartList = useSelector((state)=>state.CartReducer)
+    let coupon = useSelector((state)=>state.CouponReducer)
 
     let dispatchTheData = useDispatch();
     
@@ -19,6 +22,7 @@ let CartComponent = (props)=>{
         if(userid) {
             alert("cart will be saved");
             dispatchTheData(saveCartForCheckout(cartList,userid));
+            //dispatchTheData(saveUserOrder(cartList,userid))
            // navigate('/order');
         }else {
             alert("You're not logged-in!! Please login to help you in furture with your selected products!!")
@@ -64,7 +68,7 @@ let CartComponent = (props)=>{
                     }
                 </tbody>
             </table>
-                   <CartSummary data={calculateSummaryData(cartList)} readOnly={props.readOnly} />
+                   <CartSummary data={calculateSummaryData(cartList)} readOnly={props.readOnly}  coupon={coupon}/>
                    {
                         props.readOnly ? <></> : 
                             <>

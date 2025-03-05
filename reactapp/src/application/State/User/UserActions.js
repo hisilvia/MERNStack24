@@ -47,6 +47,7 @@ export const SaveUserToDBUsingFetch = (userObj)=>{
 export const SaveUserToDBUsingAxios = (userObj)=>{
     console.log("SaveUserToDBUsingAxios called")
     return (dispatch)=>{
+        
         axios.post("http://localhost:9000/user/api/signinup",//uri or end point of singninup api
             userObj // the user state object we dispatch from the user component
         ).then((collection)=>{

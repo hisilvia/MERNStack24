@@ -4,12 +4,15 @@ import CartSummary from "../Cart/CartSummary";
 import { calculateSummaryData } from "../Cart/CartComponent";
 import CartItemComponent from "../Cart/CartItemComponent";
 import CouponComponent from "../Coupon/CouponComponent";
-import {addItemToOrder} from "../../State/Order/OrderAction"
+import { fetchUserOrder, saveUserOrder } from '../../State/Order/OrderAction'
+import { EmptyTheCart } from '../../State/Cart/CartAction'
+import { useNavigate } from 'react-router-dom'
 
 let CheckoutComponent = (props) =>{
 
     let user = useSelector((state)=>state.UserReducer.user)
     let cartList = useSelector((state)=>state.CartReducer)
+    let coupon = useSelector((state)=>state.CouponReducer)
     let dispatch = useDispatch()
 
     console.log("user", user);
@@ -17,12 +20,16 @@ let CheckoutComponent = (props) =>{
 
     const [showEvents, setShowEvents] = useState(true);
     
+    const navigate = useNavigate();
+    
     
     let AddItemInCheckoutToOrder = ()=>{
         //let val = evt.target.value
         setShowEvents(false);
        // alter("successfully1");
-        //dispatch(addItemToOrder(cartList))
+        dispatch(saveUserOrder(user._id, cartList, coupon))
+        dispatch(EmptyTheCart())
+        //navigate('/order');
     }
 
     return (
@@ -45,7 +52,7 @@ let CheckoutComponent = (props) =>{
                                 <th>Quantity</th>
                                 <th>Total</th>
                                 {
-                                    props.readOnly ?  "" : //bydefault false as boolean default is false
+                                    props.readOnly ?  "" : //by default false as boolean default is false
                                         <>
                                             <th>Remove</th>
                                             <th>Edit</th>
@@ -64,8 +71,9 @@ let CheckoutComponent = (props) =>{
                     </table>
                     <hr/> 
 
-                    <CartSummary  data={calculateSummaryData(cartList)} readOnly={props.readOnly}/>
+                    <CartSummary  data={calculateSummaryData(cartList)} readOnly={props.readOnly} coupon={coupon}/>
                     <CouponComponent />
+
                     <hr/>
 
                     <button onClick={ AddItemInCheckoutToOrder}>MakePayment</button>
