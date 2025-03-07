@@ -4,21 +4,19 @@ schemaObj = mongooseObj.Schema; //using the schema class from mongoose
 //creates db with name mernstack24 or opens a connection if already present
 mongooseObj.connect("mongodb+srv://smatthews:12345@cluster0.32ftxoe.mongodb.net/mernstack24"); 
 
-const time = new Date();
-const timeString = time.toLocaleTimeString;
 
 let orderSchema = new schemaObj({
 
     userid: {type:String, required:true},
-    date: {type:Date, default: new Date()},
+    date: {type:Date, default:Date.now},
     amount: {type:Number, default:0},
-    // discount:{
-    //     type: {
-    //         code: { type: String, default: null }, // Discount code, defaulting to null
-    //         percentage: { type: Number, default: 0, min: 0, max: 100 }, // Discount percentage, default to 0
-    //       },
-    //       default: null,
-    // },
+    discount:{
+        type: {
+            code: { type: String, default: null }, // Discount code, defaulting to null
+            percentage: { type: Number, default: 0, min: 0, max: 100 }, // Discount percentage, default to 0
+          },
+          default: null,
+    },
     totalAmount: {type:Number, default:0},
     order: {type:Array, required:true},
     

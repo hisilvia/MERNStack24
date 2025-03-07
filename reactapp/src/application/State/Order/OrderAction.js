@@ -26,9 +26,10 @@ const fetchItemFromOrder = (orders)=>{
     }
 }
 
-const cancelItemFromOrder = ()=>{
+export const cancelItemFromOrder = (orderId)=>{
     return {
-        type: actionTypes.CANCEL_ORDER
+        type: actionTypes.CANCEL_ORDER,
+        payload : {orderId}
     }
 }
 
@@ -86,13 +87,6 @@ export const fetchUserOrder = (userid)=>{
             console.log("get carts response ", orderList);
             dispatch(fetchItemFromOrder(orderList))
 
-            // if (orderList != null) {
-            //     for (const item of orderList){
-            //         console.log("Order item in for of ", item);
-            //         let action = dispatch(fetchItemFromOrder(item));
-            //         dispatch(action);
-            //     }
-            // }
         })
         .catch((err) =>{
             console.log("Error while fetching order", err)
@@ -100,17 +94,23 @@ export const fetchUserOrder = (userid)=>{
     }
 };
 
+
 /*
 export const cancelOrder = (orderId) => {
     console.log("cancelOrder")
     return function (dispatch) {
-        axios.delete("http://localhost:9000/order/api/getUserOrder",
+        axios.delete("http://localhost:9000/order/api/cancelUserOrder",
             {orderId}
         )
         .then((response) => {
             const data = response.data
             if
+
+            dispatch(cancelItemFromOrder())
         })
+        .catch((err) =>{
+            console.log("Error while canceling order", err)
+        })    
     }
 }
  */

@@ -1,0 +1,11 @@
+.viewTable {
+    cursor: pointer;
+  }
+  
+  .viewTable:hover {
+    background-color: lightblue;
+  }
+  
+  .viewTable:active {
+    background-color: lightsalmon;
+  }

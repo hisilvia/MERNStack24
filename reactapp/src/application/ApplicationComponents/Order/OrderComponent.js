@@ -20,32 +20,28 @@ let OrderComponent = (props)=>{
     
     useEffect(()=>{
         
-        //dispatch(saveUserOrder(user._id, cartList, coupon));
-
-       // orderList && orderList.length < 1 ? (
-           dispatch(fetchUserOrder(user._id))
-           
-       // )
-          // : '';
+           dispatch(fetchUserOrder(user._id));
+      
     },[]);
     
     //const orderListId = orderList && orderList._id ? orderList._id : "";
 
     return (
         <>
-            <div className="col-md-12">
+            <div style={{ margin: '20px' }}>
                
             { orderList && orderList.length > 0
                ?  
-               (
-                    <table >
+               (  
+                    <table  className="col-sm-12 col-md-12">
                         <thead>
                             <tr>
                                 <th>Userid</th>
                                 <th>Orderid</th>
                                 <th>Date</th>
-                                {/* <th>Coupon</th> */}
-                                {/* <th>Total</th> */}
+                                <th>Coupon Code</th>
+                                <th>Discount</th>
+                                <th>Total</th>
                                 <th>View</th>
                                 <th>Cancel</th>   
                             </tr>
@@ -68,3 +64,4 @@ let OrderComponent = (props)=>{
     )
 }
 export default OrderComponent;
+

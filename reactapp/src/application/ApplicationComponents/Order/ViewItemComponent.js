@@ -14,15 +14,16 @@ let ViewItemComponent = (props)=>{
 
     return(
         <>   
-            <tr key={item._id}>
-                
-                <td>{item.name}</td>
-                <td>{item.price}</td>
-                <td>{item.desc}</td>
-                <td>{item.qty}</td>
-                <td>{item.price * item.qty}</td>
-            </tr>
-                           
+            {item && (
+                <tr key={item._id}>
+                    
+                    <td>{item.name}</td>
+                    <td>{item.price}</td>
+                    <td>{item.desc}</td>
+                    <td>{item.qty}</td>
+                    <td>{item.price * item.qty}</td>
+                </tr>
+            )}           
         </>     
     )
 }
