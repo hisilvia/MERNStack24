@@ -24,6 +24,3 @@ export const ADD_ORDER = "STORE.ADDORDER";
 export const CANCEL_ORDER = "STORE.CANCELORDER";
 export const UPDATE_ORDER = "STORE.UPDATEORDER";
 export const FETCH_ORDER = "STORE.FETCHORDER";
-
-//ReOrder -->add items from cancellation in the order componment to the cart
-export const MOVE_ORDER = "STORE.MOVEORDER";

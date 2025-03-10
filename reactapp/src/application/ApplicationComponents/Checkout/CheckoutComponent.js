@@ -6,7 +6,6 @@ import CartItemComponent from "../Cart/CartItemComponent";
 import CouponComponent from "../Coupon/CouponComponent";
 import { fetchUserOrder, saveUserOrder } from '../../State/Order/OrderAction'
 import { EmptyTheCart } from '../../State/Cart/CartAction'
-import { EmptyCoupon } from "../../State/Coupon/CouponAction";
 import { useNavigate } from 'react-router-dom'
 
 let CheckoutComponent = (props) =>{
@@ -30,7 +29,6 @@ let CheckoutComponent = (props) =>{
        // alter("successfully1");
         dispatch(saveUserOrder(user._id, cartList, coupon))
         dispatch(EmptyTheCart())
-        dispatch(EmptyCoupon())
         //navigate('/order');
     }
 

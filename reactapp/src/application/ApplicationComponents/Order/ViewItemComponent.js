@@ -8,7 +8,7 @@ let ViewItemComponent = (props)=>{
     console.log("props.item: ", props.item);
 
     //let [date, setDate] = useState(item.date);
-    //let dispatchItem = useDispatch();
+    let dispatchItem = useDispatch();
 
     //const itemId = item && item._id ? item._id : "";
 
