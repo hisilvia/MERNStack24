@@ -82,22 +82,3 @@ export const fetchUserCart = (userid)=>{
         })
     }
 };
-
-//reset cart from mongo db after clicking checkout
-export const resetCartAfterCheckout = (cart, userid) =>{
-    return function (dispatch) {
-         //dispatch(loading(true));
-        axios.post("http://localhost:9000/cart/api/saveUserCart",
-            {cart, userid}
-        )
-        .then((allData)=>{
-           
-            console.log("remove cart items ", allData.data);
-            dispatch(EmptyTheCart());
-           
-        })
-        .catch((err)=>{
-            console.log("Error While reset cart", err)
-        })
-    }
-}

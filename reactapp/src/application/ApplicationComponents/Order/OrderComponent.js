@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import OrderItemComponent from '../Order/OrderItemComponent'
-import { fetchUserOrder, saveUserOrder } from '../../State/Order/OrderAction'
+import { fetchUserOrder, saveOrderAgain, updateItemInOrder, saveUserOrder } from '../../State/Order/OrderAction'
 
 
 let OrderComponent = (props)=>{
@@ -18,13 +18,20 @@ let OrderComponent = (props)=>{
     let dispatch = useDispatch();
 
     
-    useEffect(()=>{
-        
-           dispatch(fetchUserOrder(user._id));
-      
+    useEffect(()=>{    
+           dispatch(fetchUserOrder(user._id));   
     },[]);
     
     //const orderListId = orderList && orderList._id ? orderList._id : "";
+
+    let clickToSaveOrder = (userid, orderList)=>{
+        //evt.preventDefault();
+        if(userid) {
+           // alert("order will be saved");
+            dispatch(saveOrderAgain(userid,orderList));
+            
+        }
+    }
 
     return (
         <>
@@ -39,9 +46,11 @@ let OrderComponent = (props)=>{
                                 <th>Userid</th>
                                 <th>Orderid</th>
                                 <th>Date</th>
+                                <th>Amount</th>
                                 <th>Coupon Code</th>
                                 <th>Discount</th>
                                 <th>Total</th>
+                                <th>Status</th>
                                 <th>View</th>
                                 <th>Cancel</th>   
                             </tr>
@@ -59,6 +68,10 @@ let OrderComponent = (props)=>{
                 :
                     <h4>No order yet!</h4>
                 }
+
+
+                {/* <button onClick={()=>dispatch(updateItemInOrder(orderList))}>Save Order</button> */}
+                <button onClick={clickToSaveOrder(user._id, orderList._id)}>Save Order</button> 
             </div>
         </>
     )

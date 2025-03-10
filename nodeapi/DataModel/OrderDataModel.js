@@ -18,6 +18,7 @@ let orderSchema = new schemaObj({
           default: null,
     },
     totalAmount: {type:Number, default:0},
+    status: { type: String, default: 'Pending' }, 
     order: {type:Array, required:true},
     
 },
