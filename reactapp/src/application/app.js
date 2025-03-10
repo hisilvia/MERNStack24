@@ -16,7 +16,8 @@ import ProductComponent from "./ApplicationComponents/Product/ProductComponent";
 import CartComponent from "./ApplicationComponents/Cart/CartComponent";
 import CheckoutComponent from "./ApplicationComponents/Checkout/CheckoutComponent";
 import OrderComponent from "./ApplicationComponents/Order/OrderComponent";
-
+import ReOrderComponent from "./ApplicationComponents/Order/ReOrderComponent";
+ import UnderstandingHooks from "./Hooks/UnderstandingHooks"
 
 export default class Application extends React.Component {
 
@@ -54,8 +55,10 @@ export default class Application extends React.Component {
                         <Route path="cart" element={<CartComponent />} />
                         <Route path="checkout" element={<CheckoutComponent />} />
                         <Route path="order" element={<OrderComponent />} />
+                        <Route path="reorder" element={<ReOrderComponent />} />
                         <Route path="about" element={<About />} />
                         <Route path="about/:id" element={<About />} />
+                        <Route path="hook" element={<UnderstandingHooks />} />
                         <Route path="*" element={<NotFound />}/>
                         <Route path="me" element={<Me />} />
                         {/* <Route path="lifecycle" element={<PracticeLifeCycle />} />  */}
