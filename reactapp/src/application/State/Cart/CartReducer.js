@@ -31,6 +31,9 @@ let CartReducer = (state = Initial_State, action)=>{
         case actionTypes.EMPTY_CART :
             return []
       
+        case actionTypes.MERGE_CART:
+            return action.payload.mergedCart    
+            
         default:
             return state
     }

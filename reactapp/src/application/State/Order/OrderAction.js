@@ -1,5 +1,6 @@
 import * as actionTypes from "../ActionTypes";
 import axios from "axios";
+import { MergeTheCart } from "../Cart/CartAction";
 
 //Actions
 export const addItemToOrder = (order)=>{
@@ -23,31 +24,13 @@ export const fetchItemFromOrder = (orders)=>{
     }
 }
 
-export const cancelItemFromOrder = (orderId)=>{
+export const cancelItemFromOrder = (orderid)=>{
     return {
         type: actionTypes.CANCEL_ORDER,
-        payload : {orderId}
+        payload : {orderid}
     }
 }
 
-//Save order again after cancelling it
-export const saveOrderAgain = (userid, orderlist)=>{
-    console.log("Order List: ", orderlist);
-
-    return function (dispatch){
-        axios.patch("http://localhost:9000/order/api/saveUserOrder",
-            {orderlist, userid}
-        )
-        .then((allData)=>{
-            let orderResp = allData.data;
-            console.log("order save again response ", orderResp);
-            dispatch(updateItemInOrder(orderlist));
-        })
-        .catch((err)=>{
-            console.log("Error while saving order again: ", err)
-        })
-    }
-};
 
 //Add orders to database
 export const saveUserOrder = (userid, order, coupon) =>{
@@ -108,38 +91,79 @@ export const moveOrderToCart = (orderId)=>{
         type: actionTypes.MOVE_ORDER,
         payload: {orderId},
     }
-}
+};
 
-export const reOrder = (orderId) => {
-    console.log("reOrder is called")
-    return function(dispatch) {
-        axios.post("http://localhost:9000/order/api/reOrder", {orderId})
-            .then((response => {
 
+
+export const cancelOrder = (orderid)=>{
+    console.log("orderid: ", orderid)
+
+    return function(dispatch, getState) {
+        axios.delete(`http://localhost:9000/order/api/${orderid}/cancelOrder`)
+        .then((response)=>{
+            const data = response.data;
+            console.log("response: ", response);
+            console.log("data: ", data);
+
+            //const orders = data.order;
+            //Using Object.entries() to get key-value pairs
+            //const orderArrayKeys = Object.keys(data);
+            const orders = getState().OrderReducer;
+            console.log("orders: ", orders);
+
+            const updatedOrders = orders.map((item)=>{
+
+                if(item._id == data._id){
+
+                    console.log("item._id: ", item._id);
+                    console.log("data._id: ", data._id);
+                    console.log("data inside if: ", data);
+                    return data
+                }
+                console.log("item: ", item);
+                return item
             })
-            .catch((err) =>{
-                console.log("Error while reOrdering...", err)
-            }) 
-        )
-    }
-}
+               
+            dispatch(cancelItemFromOrder(orderid))
+            //dispatch(updateItemInOrder(updatedOrders))
 
-/*
-export const cancelOrder = (orderId) => {
-    console.log("cancelOrder")
-    return function (dispatch) {
-        axios.delete("http://localhost:9000/order/api/cancelUserOrder",
-            {orderId}
-        )
-        .then((response) => {
-            const data = response.data
-            
+            //dispatch(updateItemInOrder(orderid))
+            //dispatch(fetchItemFromOrder(data));
 
-            dispatch(cancelItemFromOrder(orderId))
-        })
-        .catch((err) =>{
+        }).catch((err) =>{
             console.log("Error while canceling order", err)
-        })    
+        })
     }
 }
- */
+
+export const reOrder = (orderItems) => {
+    console.log("reOrder is called");
+
+    return function(dispatch, getState) {
+        
+        const cart = getState().CartReducer
+        console.log("cart: ", cart);
+
+        const newCart = cart.map((cartItem)=>JSON.parse(JSON.stringify(cartItem)));
+        console.log("newCart: ", newCart); 
+
+        orderItems.forEach((orderItem) => {
+
+            newCart.push({...orderItem.order, qty:orderItem.qty})
+
+            /*
+            const productId = orderItem.order._id;
+            const cartItem = newCart.find((cartItem)=>cartItem._id === productId)
+
+            if(cartItem){
+                cartItem.qty += orderItem.qty
+            }else{
+                newCart.push({...orderItem.order, qty:orderItem.qty})
+            }
+            */
+        });
+        console.log("cart after push: ", cart);
+        dispatch(MergeTheCart(newCart));
+        
+    }
+}

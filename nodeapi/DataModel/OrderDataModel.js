@@ -21,10 +21,10 @@ let orderSchema = new schemaObj({
     status: { type: String, default: 'Pending' }, 
     order: {type:Array, required:true},
     
-},
-{
+   },
+   {
     versionKey: false //false - set to false then it wont create in mongodb, don't set it to true, if you want _v just dont add this
-})
+  })
 
 let OrderModel = mongooseObj.model("order", orderSchema);//user - collection name, pluralised by mongodb
 

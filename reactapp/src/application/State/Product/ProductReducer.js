@@ -14,7 +14,20 @@ const Initial_State = {
 //write callback/ reducer to generate new state upon action change
 let ProductReducer = (state = Initial_State, action)=>{
     //switch case logice to read action type and return new state / updated state
-/*
+
+    switch (action.type) {
+        
+        case actionTypes.ADD_PRODUCTS_TO_STORE :    
+            return { ...state, Product : action.payload } 
+
+        case actionTypes.FETCH_PRODUCTS:
+            return { ...state, Products : action.payload }  
+
+        default:
+            return state
+    }
+
+    /*
     switch (action.type) {
         
         case actionTypes.ADD_PRODUCTS_TO_STORE :
@@ -28,17 +41,6 @@ let ProductReducer = (state = Initial_State, action)=>{
             return state
     }
 */
-    switch (action.type) {
-        
-        case actionTypes.ADD_PRODUCTS_TO_STORE :    
-            return { ...state, Product : action.payload } 
-
-        case actionTypes.FETCH_PRODUCTS:
-            return { ...state, Products : action.payload }  
-
-        default:
-            return state
-    }
 }
 
 export default ProductReducer;

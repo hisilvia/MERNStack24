@@ -1,7 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from 'date-fns';      //Employing external libraries-->ensure they are installed->npm install date-fns
-import moment from 'moment';
 import ViewItemComponent from "./ViewItemComponent"
 import {cancelItemFromOrder, updateItemInOrder, moveOrderToCart, cancelOrder} from "../../State/Order/OrderAction"
 
@@ -15,6 +14,7 @@ let OrderItemComponent = (props)=>{
     console.log("props.item: ", props.list);
 
     let listId = list._id;
+    //let orderId = listId._id;
     //let [date, setDate] = useState(item.date);
     let dispatchItem = useDispatch();
 
@@ -52,18 +52,19 @@ let OrderItemComponent = (props)=>{
  
      //If the order is not delivered, 
      // then the items will be saved in the cart while a customer is clicking the cancel button
-     const handleCancelButton = (evt)=>{
-        evt.stopPropagation()
+    const handleCancelButton = (orderid)=>{
         if(!isMoreThan48Hours(date1, date2)){
-           // dispatchItem(moveOrderToCart(item._id));
-            dispatchItem(cancelItemFromOrder(listId));
-            //dispatchItem(updateItemInOrder(listId))
+
+            console.log("handleCancelButton")
+            dispatchItem(cancelOrder(orderid))
+            //dispatchItem(saveOrderAgain(orderid))
+            //dispatchItem(cancelItemFromOrder)
         }else{
             alert('Items were delivered successfully. You cannot cancel the order!')
         }
-        
     }
 
+    
     return(
         <>       
             { list._id != null && !isMoreThan96Hours(date1, date2) && (
@@ -92,14 +93,16 @@ let OrderItemComponent = (props)=>{
                     <td>
                         <button onClick = {toggleToTable}>View</button>
                     </td>
-                    <td><button onClick={()=>dispatchItem(cancelItemFromOrder(list._id))}>Cancel</button></td>
+                    <td><button onClick={()=>handleCancelButton(list._id)}>Cancel</button></td>
+                    {/* <td><button onClick={()=>dispatchItem(cancelItemFromOrder(list._id))}>Cancel</button></td> */}
+                    {/* <td><button onClick={(evt)=>handleCancelButton(list, evt)}>Cancel</button></td> */}
 
                     {isToView && (
                         <tr>
                             <td colSpan="8">
-                                <table class="table table-bordered border-primary  table-secondary table-hover">
+                                <table className="table table-bordered border-primary  table-secondary table-hover">
                                 {/* <table class="table"> */}
-                                    <thead  class="thead-light">
+                                    <thead  className="thead-light">
                                         <tr>
                                             <td>Product Name</td>
                                             <td>Unit Price</td>
@@ -141,7 +144,7 @@ function isMoreThan48Hours(date1, date2) {
     const hoursDiffence = timeDifference / (1000 * 60 * 60);
     // console.log("hoursDifference: ", hoursDifference)     
     // debugger
-    return hoursDiffence > 57;
+    return hoursDiffence >48;
 }
 
 export function isMoreThan96Hours(date1, date2) {

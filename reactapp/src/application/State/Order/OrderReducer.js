@@ -19,12 +19,13 @@ let OrderReducer = (state=initialState, action)=>{
             return action.payload  
 
         case actionTypes.CANCEL_ORDER:
-            return state.filter((item)=>item._id != action.payload.orderId)
+            console.log("action.payload: ", action.payload)
+            return state.filter((item)=>item._id != action.payload.orderid)
        
         case actionTypes.MOVE_ORDER:
             return state.filter((item)=>item._id == action.payload.orderId)     
         
-            default:
+        default:
             return state
     }
 }

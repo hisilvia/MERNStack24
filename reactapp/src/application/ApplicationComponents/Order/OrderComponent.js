@@ -3,6 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import OrderItemComponent from '../Order/OrderItemComponent'
 import { fetchUserOrder, saveOrderAgain, updateItemInOrder, saveUserOrder } from '../../State/Order/OrderAction'
 
+
+//Use this format in two part->orders and cancelled orders, 
+// so need to pass props to divieinto two parts :
+//  a. when props: canclledOrder = false ==> all orders in OrderComponent
+//  b. when props: canclledOrder = true ==> this canclled order should be in CanclledComponent
 let OrderComponent = (props)=>{
 
     let user = useSelector((state)=>state.UserReducer.user)
@@ -15,22 +20,12 @@ let OrderComponent = (props)=>{
    // console.log("orderList.oreder length: ", orderList.length);
 
     let dispatch = useDispatch();
-
-    
+   
     useEffect(()=>{
            dispatch(fetchUserOrder(user._id)); 
     },[]);
     
     //const orderListId = orderList && orderList._id ? orderList._id : "";
-
-    let clickToSaveOrder = (userid, orderList)=>{
-        //evt.preventDefault();
-        if(userid) {
-           // alert("order will be saved");
-            dispatch(saveOrderAgain(userid,orderList));
-            
-        }
-    }
 
     return (
         <>
@@ -38,7 +33,7 @@ let OrderComponent = (props)=>{
                
             { orderList && orderList.length > 0
                ?  
-               (  
+               (  <div key={user._id}>
                     <table  className="col-sm-12 col-md-12">
                         <thead>
                             <tr>
@@ -61,7 +56,8 @@ let OrderComponent = (props)=>{
                             ))}
                         </tbody>
                     </table>
-                                
+                           
+                    </div>         
                 )
       
                 :
@@ -69,7 +65,7 @@ let OrderComponent = (props)=>{
                 }
 
                 {/* <button onClick={()=>dispatch(updateItemInOrder(orderList))}>Save Order</button> */}
-                {/* <button onClick={clickToSaveOrder(user._id, orderList._id)}>Save Order</button>  */}
+             
                 
             </div>
         </>
