@@ -56,7 +56,8 @@ orderRouter.post("/api/getUserOrder", (req, res)=>{
     })
 });
 
-//retrieve the remaining orders after deleting the one
+
+//save the deleted one order
 orderRouter.delete("/api/:orderid/cancelOrder", async(req, res)=>{
 
     try{
@@ -99,7 +100,7 @@ orderRouter.delete("/api/:orderid/cancelOrder", async(req, res)=>{
 
 }) 
 
-//save the deleted one order
+//retrieve the remaining orders after deleting the one
 orderRouter.put("/api/:orderid", async(req, res)=>{
 
     try{

@@ -113,6 +113,7 @@ export const cancelOrder = (orderid)=>{
 
             const updatedOrders = orders.map((item)=>{
 
+                
                 if(item._id == data._id){
 
                     console.log("item._id: ", item._id);
@@ -120,14 +121,16 @@ export const cancelOrder = (orderid)=>{
                     console.log("data inside if: ", data);
                     return data
                 }
-                console.log("item: ", item);
-                return item
+                   
+                //if(item._id != data._id) {
+                    console.log("item: ", item);
+                    return item
+                //}
+
             })
                
-            dispatch(cancelItemFromOrder(orderid))
-            //dispatch(updateItemInOrder(updatedOrders))
-
-            //dispatch(updateItemInOrder(orderid))
+            //dispatch(cancelItemFromOrder(orderid))
+            dispatch(updateItemInOrder(updatedOrders))
             //dispatch(fetchItemFromOrder(data));
 
         }).catch((err) =>{
@@ -138,6 +141,7 @@ export const cancelOrder = (orderid)=>{
 
 export const reOrder = (orderItems) => {
     console.log("reOrder is called");
+    console.log("orderItems", orderItems);
 
     return function(dispatch, getState) {
         
@@ -149,18 +153,16 @@ export const reOrder = (orderItems) => {
 
         orderItems.forEach((orderItem) => {
 
-            newCart.push({...orderItem.order, qty:orderItem.qty})
-
-            /*
-            const productId = orderItem.order._id;
+        
+            const productId = orderItem._id;
             const cartItem = newCart.find((cartItem)=>cartItem._id === productId)
 
             if(cartItem){
-                cartItem.qty += orderItem.qty
+                cartItem.qty = parseInt(cartItem.qty) + parseInt(orderItem.qty)
             }else{
-                newCart.push({...orderItem.order, qty:orderItem.qty})
+                newCart.push({...orderItem, qty:orderItem.qty})
             }
-            */
+            
         });
         console.log("cart after push: ", cart);
         dispatch(MergeTheCart(newCart));

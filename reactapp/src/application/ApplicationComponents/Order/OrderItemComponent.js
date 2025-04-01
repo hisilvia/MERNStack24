@@ -2,7 +2,8 @@ import React, { useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from 'date-fns';      //Employing external libraries-->ensure they are installed->npm install date-fns
 import ViewItemComponent from "./ViewItemComponent"
-import {cancelItemFromOrder, updateItemInOrder, moveOrderToCart, cancelOrder} from "../../State/Order/OrderAction"
+import {cancelItemFromOrder, updateItemInOrder, moveOrderToCart, cancelOrder, reOrder} from "../../State/Order/OrderAction"
+import { useNavigate } from 'react-router-dom'
 
 let OrderItemComponent = (props)=>{
 
@@ -45,6 +46,7 @@ let OrderItemComponent = (props)=>{
         return localTime;
     }
 
+    const navigate = useNavigate();
     //Assume the order will be delivered after created or paied it 48 hours
      // const stillAbleToCancelOrder = ()=>{
      //     return !isMoreThan48Hours(date1, date2)
@@ -53,21 +55,28 @@ let OrderItemComponent = (props)=>{
      //If the order is not delivered, 
      // then the items will be saved in the cart while a customer is clicking the cancel button
     const handleCancelButton = (orderid)=>{
-        if(!isMoreThan48Hours(date1, date2)){
+        if(!isMoreThan48Hours(date1, date2) && (list.status !== 'Cancelled')){
 
             console.log("handleCancelButton")
             dispatchItem(cancelOrder(orderid))
+            navigate('/cancelledOrders');
             //dispatchItem(saveOrderAgain(orderid))
             //dispatchItem(cancelItemFromOrder)
-        }else{
+        }
+        
+        if (list.status == 'Delivered'){
             alert('Items were delivered successfully. You cannot cancel the order!')
+        }
+
+        if (list.status == 'Cancelled'){
+            dispatchItem(reOrder(list.order))
         }
     }
 
     
     return(
         <>       
-            { list._id != null && !isMoreThan96Hours(date1, date2) && (
+            { list._id != null && !isMoreThan96Hours(date1, date2) &&(
             // { list._id != null && (      
                 <tr key={list._id}>
 
@@ -93,7 +102,11 @@ let OrderItemComponent = (props)=>{
                     <td>
                         <button onClick = {toggleToTable}>View</button>
                     </td>
-                    <td><button onClick={()=>handleCancelButton(list._id)}>Cancel</button></td>
+                    <td>
+                        <button onClick={()=>handleCancelButton(list._id)}>
+                            {list.status == 'Cancelled' ? 'ReOrder' : 'Cancel'}
+                        </button>
+                    </td>
                     {/* <td><button onClick={()=>dispatchItem(cancelItemFromOrder(list._id))}>Cancel</button></td> */}
                     {/* <td><button onClick={(evt)=>handleCancelButton(list, evt)}>Cancel</button></td> */}
 
