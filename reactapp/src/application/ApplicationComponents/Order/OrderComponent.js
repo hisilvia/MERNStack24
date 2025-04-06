@@ -29,12 +29,13 @@ let OrderComponent = (props)=>{
 
     return (
         <>
-            <div style={{ margin: '20px' }}>
+            <div style={{ margin: '20px' }} >
+                
                
             { orderList && orderList.length > 0
                ?  
-               (  <div key={user._id}>
-                    <table  className="col-sm-12 col-md-12">
+               (  <div key={user._id} >
+                    <table>
                         <thead>
                             <tr>
                                 <th>Userid</th>
@@ -51,6 +52,7 @@ let OrderComponent = (props)=>{
                         </thead>
                         <tbody>
                             {orderList.map((list)=>(
+                                
                                 list ? <OrderItemComponent key={list._id} list={list} /> : null
                                 
                             ))}
@@ -65,7 +67,7 @@ let OrderComponent = (props)=>{
                 }
 
                 {/* <button onClick={()=>dispatch(updateItemInOrder(orderList))}>Save Order</button> */}
-             
+               
                 
             </div>
         </>

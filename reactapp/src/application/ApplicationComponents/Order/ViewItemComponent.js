@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Review from "./Review";
 
 let ViewItemComponent = (props)=>{
 
@@ -14,7 +15,9 @@ let ViewItemComponent = (props)=>{
 
     return(
         <>   
+
             {item && (
+               
                 <tr key={item._id}>
                     
                     <td>{item.name}</td>
@@ -23,7 +26,15 @@ let ViewItemComponent = (props)=>{
                     <td>{item.qty}</td>
                     <td>{item.price * item.qty}</td>
                 </tr>
-            )}           
+                
+               
+                
+                
+            )}
+            
+        
+            
+            
         </>     
     )
 }

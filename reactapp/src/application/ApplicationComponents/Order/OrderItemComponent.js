@@ -4,6 +4,7 @@ import { format } from 'date-fns';      //Employing external libraries-->ensure 
 import ViewItemComponent from "./ViewItemComponent"
 import {cancelItemFromOrder, updateItemInOrder, moveOrderToCart, cancelOrder, reOrder} from "../../State/Order/OrderAction"
 import { useNavigate } from 'react-router-dom'
+import Review from "./Review";
 
 let OrderItemComponent = (props)=>{
 
@@ -77,9 +78,10 @@ let OrderItemComponent = (props)=>{
     return(
         <>       
             { list._id != null && !isMoreThan96Hours(date1, date2) &&(
-            // { list._id != null && (      
+            // { list._id != null && (     
+             
                 <tr key={list._id}>
-
+                    
                     <td>{user._id}</td>
                     <td>{list._id}</td>
                     <td>{format(new Date(list.date).toISOString(), 'MM/dd/yyyy hh:mm:ss')}</td>
@@ -109,10 +111,13 @@ let OrderItemComponent = (props)=>{
                     </td>
                     {/* <td><button onClick={()=>dispatchItem(cancelItemFromOrder(list._id))}>Cancel</button></td> */}
                     {/* <td><button onClick={(evt)=>handleCancelButton(list, evt)}>Cancel</button></td> */}
-
+                    
+                    
                     {isToView && (
+                       
                         <tr>
-                            <td colSpan="8">
+                            <td>
+                            
                                 <table className="table table-bordered border-primary  table-secondary table-hover">
                                 {/* <table class="table"> */}
                                     <thead  className="thead-light">
@@ -133,13 +138,20 @@ let OrderItemComponent = (props)=>{
                                     
                                     </tbody>
                                 </table>
+                               
+                                <Review />
                             </td>
+                            
                         </tr>
-
+          
                     )} 
+                    
+                    
                 </tr>
+             
             )}
             
+           
         </>
 
 
